@@ -5,6 +5,17 @@ using namespace std;
 void flipAndInvertImage(int **image, int size)
 {
     // TODO: Implement this function.
+    for (int row = 0; row < size; row++){
+        int start = 0;
+        int end = size - 1;
+        while (start <= end){
+            int tmp = 1 - image[row][start];
+            image[row][start] = 1- image[row][end];
+            image[row][end] = tmp;
+            start ++;
+            end --;
+        }
+    }
 }
 
 int main()

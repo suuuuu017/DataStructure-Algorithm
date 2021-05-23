@@ -12,6 +12,23 @@ using namespace std;
 // EFFECTS: return true if the password is a valid one
 bool isValidPassword(char password[]){
     // TODO: Implement this function.
+    bool alphabetic = false;
+    bool numerical = false;
+    bool other = false;
+    int i = 0;
+    while(password[i] != '\0'){
+        if(isalpha(password[i])){
+            alphabetic = true;
+        }
+        else if(isdigit(password[i])){
+            numerical = true;
+        }
+        else{
+            other = true;
+        }
+        i++;
+    }
+    return alphabetic && numerical && other;
 }
 
 

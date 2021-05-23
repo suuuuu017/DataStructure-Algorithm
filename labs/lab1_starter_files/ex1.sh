@@ -40,6 +40,7 @@ create() {
 
 	# Create a directory named `sql/`.
 	# TODO: Replace this line with a linux command line.
+	mkdir sql
 
 	# Create and initialize the database.
 	echo "Hello World!" > sql/database.txt
@@ -49,24 +50,29 @@ create() {
 dump() {
 	# Copy the file `sql/database.txt` to the directory `webserver/`
 	# TODO: Replace this line with a linux command line.
+	cp sql/database.txt webserver
 }
 
 
 list() {
 	# List all files in directory `webserver/`.
 	# TODO: Replace this line with a linux command line.
+	ls webserver
 }
 
 
 display() {
 	# Display `webserver/database.txt` in stdout.
 	# TODO: Replace this line with a linux command line.
+	cat webserver/database.txt
 }
 
 
 destroy() {
 	# Remove the `webserver/` and `sql/` directories.
 	# TODO: Replace this line with a linux command line.
+	rm -r webserver
+	rm -r sql
 }
 
 
