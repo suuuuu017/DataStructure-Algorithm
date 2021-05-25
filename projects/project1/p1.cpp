@@ -10,7 +10,7 @@ void print_prompt() {
 bool armstrongNum(int num){
     int i = 0;
     while(i < num){
-        if((i ^ num % num) == i){
+        if((int(pow(i, num) + 0.5) % num) == i){
             i = i + 1;
         }
         else{
