@@ -7,10 +7,53 @@ void print_prompt() {
     std::cout << "Please enter the integer and the test number: ";
 }
 
+int* binaryList(int num) {
+    int * binaryNum = new int[32];
+    int count = 0;
+    for(int i = 0; i < 32; i ++){
+        binaryNum[i] = 0;
+    }
+    while (num > 0) {
+        binaryNum[count] = num % 2;
+        num = num / 2;
+        count++;
+    }
+    return binaryNum;
+}
+
+int partialMod(int* binaryNum, int b, int n){
+    int last = 0;
+    int next = 0;
+    int mod = 0;
+    for(int i = 0; i < 32; i++){
+        if(binaryNum[i]){
+            last = i;
+            int tmp = int(pow(2, last) + 0.5);
+            mod = int(pow(b, tmp) + 0.5) % n;
+            break;
+        }
+    }
+    int i = last + 1;
+    for(int j = i; j < 32; j ++){
+        if(binaryNum[j] == 1){
+            next = j;
+            int newmod = mod;
+            for(int c = 0; c < next - last; c = c + 1){
+                newmod = ( newmod * mod ) % n;
+            }
+            mod = ( mod * newmod ) % n;
+        }
+        last = next;
+    }
+    return mod;
+}
+
 bool armstrongNum(int num){
-    int i = 0;
+    int i = 1;
     while(i < num){
-        if((int(pow(i, num) + 0.5) % num) == i){
+        int* l = binaryList(num);
+        int ans = partialMod(l, i, num);
+        if(ans == i){
             i = i + 1;
         }
         else{
@@ -18,6 +61,7 @@ bool armstrongNum(int num){
         }
     }
     return true;
+//TODO: check if i need to add 0.5 after the pow
 }
 
 bool cycloneJet(int num) {
@@ -73,14 +117,18 @@ int main() {
     bool opCheck = false;
     int integer;
     int op;
-    while (!(rangeCheck && opCheck)){
+    while (true){
         print_prompt();
         std::cin >> integer >> op;
+        //TODO: what if the input is a string and an op, why nonstop print
         if((0 <= integer) && (integer <= 10000000)){
             rangeCheck = true;
         }
         if((1 <= op) && (op <= 4)){
             opCheck = true;
+        }
+        if(rangeCheck && opCheck){
+            break;
         }
     }
     if(op == 1){
