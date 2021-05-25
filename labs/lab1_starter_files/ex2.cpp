@@ -13,8 +13,6 @@ using namespace std;
 // EFFECTS: return true if the password is a valid one
 bool isValidPassword(char password[]){
     // TODO: Implement this function.
-    cout << strlen(password) << endl;
-    cout << "password at 49 is " << password[49] << std::endl;
     if(strlen(password) > 50){
         return false;
     }
@@ -22,8 +20,6 @@ bool isValidPassword(char password[]){
     bool numerical = false;
     bool other = false;
     int i = 0;
-    cout << "password at 51 is " << password[49] << std::endl;
-    cout << "what is at password[49] " << (password[49] == '\0') << std::endl;
     while(i < strlen(password)){
         if(isalpha(password[i])){
             alphabetic = true;
