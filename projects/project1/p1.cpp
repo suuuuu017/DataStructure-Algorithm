@@ -7,58 +7,17 @@ void print_prompt() {
     std::cout << "Please enter the integer and the test number: ";
 }
 
-int* binaryList(int num) {
-    int * binaryNum = new int[32];
-    int count = 0;
-    for(int i = 0; i < 32; i ++){
-        binaryNum[i] = 0;
-    }
-    while (num > 0) {
-        binaryNum[count] = num % 2;
-        num = num / 2;
-        count++;
-    }
-    return binaryNum;
-}
-
-int partialMod(int* binaryNum, int b, int n){
-    int last = 0;
-    int next = 0;
-    int mod = 0;
-    for(int i = 0; i < 32; i++){
-        if(binaryNum[i]){
-            last = i;
-            int tmp = int(pow(2, last) + 0.5);
-            mod = int(pow(b, tmp) + 0.5) % n;
-            break;
-        }
-    }
-    int i = last + 1;
-    for(int j = i; j < 32; j ++){
-        if(binaryNum[j] == 1){
-            next = j;
-            int newmod = mod;
-            for(int c = 0; c < next - last; c = c + 1){
-                newmod = ( newmod * mod ) % n;
-            }
-            mod = ( mod * newmod ) % n;
-        }
-        last = next;
-    }
-    return mod;
-}
-
 bool armstrongNum(int num){
     int i = 1;
     while(i < num){
-        int* l = binaryList(num);
-        int ans = partialMod(l, i, num);
-        if(ans == i){
-            i = i + 1;
+        long tmp = 1;
+        for(int j = 1; j <= num; j ++){
+            tmp = tmp * i % num;
         }
-        else{
+        if(tmp != i){
             return false;
         }
+        i = i + 1;
     }
     return true;
 //TODO: check if i need to add 0.5 after the pow
@@ -80,9 +39,9 @@ bool cycloneJet(int num) {
 }
 
 bool blackPremium(int num){
-    int x = 0;
-    x = (sqrt(24 * num + 1) + 1) / 6.0;
-    if(isdigit(x)){
+    float x = 0.0;
+    x = (sqrt(24.0 * num + 1.0) + 1.0) / 6.0;
+    if(int(x) == x){
         return true;
     }
     else{
