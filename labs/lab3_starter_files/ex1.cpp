@@ -12,7 +12,7 @@ int fold (int count, int arr[], int (*fn) (int, int), int initial) {
         return initial;
     }
     else{
-        fn(array[count - 1], fold(count - 1, arr, fn, initial));
+        return fn(array[count - 1], fold(count - 1, arr, fn, initial));
     }
 }
 
@@ -28,7 +28,7 @@ int fn_count_odd (int a, int n) {
     // TODO: implement this function such that fold(n,arr,fn_count_odd, 0)
     // returns the numebr of odd numbers in the array
     if((a % 2) == 1){
-        return n = n + 1;
+        return n + 1;
     }
     else{
         return n;

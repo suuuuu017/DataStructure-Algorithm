@@ -69,6 +69,10 @@ int main(int argc, char *argv[]){
             std::cout << help_message << std::endl;
             return 0;
         }
+        else if((!add) && (!small)){
+            std::cout << no_op_message << std::endl;
+            return 0;
+        }
         else{
             std::cin >> num;
             int arr[num];
