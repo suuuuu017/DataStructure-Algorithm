@@ -11,23 +11,24 @@ const int MAXSIZE = 10;
 const int winning = 280;
 
 bool canWin_helper(bool visit[], int count, int card[], int position){
-    visit[position] = true;
     if(card[position] == winning){
+        visit[position] = true;
         return true;
     }
-//    else if((position + card[position] < count) && (! visit[position + card[position]])){
-//        canWin_helper(visit, count, card, position + card[position]);
-//    }
-//    else if((position - card[position] >= 0) && (! visit[position - card[position]])){
-//        canWin_helper(visit, count, card, position - card[position]);
-//    }
-    return false;
+    else if (visit[position] || position >= count || position < 0){
+        return false;
+    }
+    else{
+        visit[position] = true;
+        return canWin_helper(visit, count, card, position + card[position]) ||
+                canWin_helper(visit, count, card, position - card[position]);
+    }
+
 }
 
 bool canWin(int count, int arr[], int position) {
     // EFFECTS: return whether the player can win given the start position
     // and the card sequence
-    
     // TODO: implement this function
     bool visit[MAXSIZE] = {false};
     return canWin_helper(visit, count, arr, position);
