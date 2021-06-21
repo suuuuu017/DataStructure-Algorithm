@@ -5,6 +5,7 @@
 
 #include <cmath>
 #include "standardForm.h"
+#include <iostream>
 
 QuadraticFunction::QuadraticFunction(float a_in, float b_in, float c_in): a(a_in), b(b_in), c(c_in){}
 // TODO: implement this constructor
@@ -24,7 +25,7 @@ float QuadraticFunction::getC() const {
 float QuadraticFunction::evaluate(float x) {
     // TODO: implement this function
     float result = 0;
-    result = pow(a, 2) * x + b * x + c;
+    result = a * pow(x, 2)+ x * b + c;
     return result;
 }
 

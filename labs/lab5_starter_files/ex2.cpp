@@ -15,6 +15,8 @@ int main() {
     QuadraticFunction f(a1, b1, c1);
     QuadraticFunction g(a2, b2, c2);
 
+    cout << f.getA() << x;
+
     cout << setprecision(1) << fixed;
     cout << "f(x)=" << f.getA() << "x^2+" << f.getB() << "x+" << f.getC() << endl;
     cout << "f(" << x << ")=" << f.evaluate(x) << endl;

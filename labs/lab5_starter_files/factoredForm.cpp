@@ -12,6 +12,14 @@ QuadraticFunction::QuadraticFunction(float a_in, float b_in, float c_in){
     float c1 = c_in;
     float delta = pow(b1, 2) - 4 * a1 * c1;
     Root root;
+    root.roots[0].real = 0;
+    root.roots[0].imaginary = 0;
+    root.roots[1].real = 0;
+    root.roots[1].imaginary = 0;
+    r1.real = 0;
+    r1.imaginary = 0;
+    r2.real = 0;
+    r2.imaginary = 0;
     if(delta > 0){
         root.roots[0].real = (-1 * b1 - sqrt(delta)) / (2 * a1);
         root.roots[1].real = (-1 * b1 + sqrt(delta)) / (2 * a1);
