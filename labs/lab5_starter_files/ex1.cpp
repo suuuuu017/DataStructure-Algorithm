@@ -37,7 +37,7 @@ list_t filter(list_t list, bool (*fn)(int)){
     while(!list_isEmpty(list)){
         int cand = list_first(list);
         if(fn(cand)){
-            list_make(cand, filtered);
+            filtered = list_make(cand, filtered);
         }
         list = list_rest(list);
     }
