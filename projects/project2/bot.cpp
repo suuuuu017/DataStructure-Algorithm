@@ -55,3 +55,56 @@ void courseData::printData(){
 }
 
 
+queryData::queryData() {
+    this->length = 100;
+    this->query = new messageInfo[length];
+}
+
+void queryData::loadData(std::ifstream &queryText) {
+    int max = length;
+    int counter = 0;
+    while(queryText){
+        if(queryText){
+            std::string line;
+            std::getline(queryText, line);
+
+            std::istringstream iStream;
+            iStream.str(line);
+
+            std::string time;
+            std::string group;
+            std::string name;
+            std::string command;
+            std::string commandArg;
+
+            while(getline(iStream, time, ',')){
+
+            }
+
+            counter = counter + 1;
+        }
+    }
+}
+
+void queryData::enlargeData(messageInfo * oldQuery) {
+    int newLength = length * 10;
+    messageInfo * newQuery = new messageInfo[newLength];
+    for(int i = 0; i < length; i++){
+        newQuery[i].time = oldQuery[i].time;
+        newQuery[i].group = oldQuery[i].group;
+        newQuery[i].name = oldQuery[i].name;
+        newQuery[i].command = oldQuery[i].command;
+        newQuery[i].commandArg = oldQuery[i].commandArg;
+
+    }
+    this->length = newLength;
+    this->query = newQuery;
+}
+
+void queryData::printData() {
+    for(int i = 0; i < length; i ++){
+        std::cout << "time is: " << query->time << " group is: " << query->group
+                << " name is: " << query->name << " command is: " << query->command
+                << " commandArg is: " << query->commandArg << std::endl;
+    }
+}

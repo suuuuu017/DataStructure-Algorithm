@@ -21,3 +21,26 @@ public:
     void printData();
 };
 
+struct messageInfo{
+    std::string time;
+    std::string group;
+    std::string name;
+    std::string command;
+    std::string commandArg;
+};
+
+class queryData{
+private:
+    int length;
+    messageInfo *query;
+
+public:
+    queryData();
+
+    void loadData(std::ifstream &queryText);
+
+    void enlargeData(messageInfo * oldQuery);
+
+    void printData();
+};
+

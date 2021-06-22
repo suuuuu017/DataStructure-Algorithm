@@ -30,4 +30,6 @@ int main(int argc, char * argv[]){
     courses.loadData(courseRead);
 
     courses.printData();
+
+
 }
