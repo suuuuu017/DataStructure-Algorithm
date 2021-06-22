@@ -31,5 +31,20 @@ int main(int argc, char * argv[]){
 
     courses.printData();
 
+    queryData query;
+
+    std::string line;
+
+    while(getline(std::cin, line)){
+        std::istringstream q;
+        q.str(line);
+        query.loadData(q);
+        query.printData();
+        std::cin.clear();
+        std::string com;
+        com = query.readCommand();
+
+    }
+
 
 }

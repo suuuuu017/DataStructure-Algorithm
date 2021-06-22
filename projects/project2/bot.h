@@ -31,16 +31,15 @@ struct messageInfo{
 
 class queryData{
 private:
-    int length;
-    messageInfo *query;
+    messageInfo message;
 
 public:
     queryData();
 
-    void loadData(std::ifstream &queryText);
-
-    void enlargeData(messageInfo * oldQuery);
+    void loadData(std::istream & queryText);
 
     void printData();
+
+    std::string readCommand();
 };
 

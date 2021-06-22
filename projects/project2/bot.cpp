@@ -55,56 +55,59 @@ void courseData::printData(){
 }
 
 
-queryData::queryData() {
-    this->length = 100;
-    this->query = new messageInfo[length];
-}
+queryData::queryData() {};
 
-void queryData::loadData(std::ifstream &queryText) {
-    int max = length;
-    int counter = 0;
-    while(queryText){
-        if(queryText){
-            std::string line;
-            std::getline(queryText, line);
+void queryData::loadData(std::istream & queryText) {
+    std::string time;
+    std::string group;
+    std::string name;
+    std::string command;
+    std::string commandArg;
+    std::string arg;
+    std::string mes;
 
-            std::istringstream iStream;
-            iStream.str(line);
-
-            std::string time;
-            std::string group;
-            std::string name;
-            std::string command;
-            std::string commandArg;
-
-            while(getline(iStream, time, ',')){
-
+    if(getline(queryText, time, ',')){
+        this->message.time = time;
+//        std::cout << time << "  here time " << std::endl;
+        if(getline(queryText, group, ',')) {
+            this->message.group = group;
+//            std::cout << group << "  here group " << std::endl;
+            if (getline(queryText, name, ',')){
+                this->message.name = name;
+//                std::cout << name << "  here name " << std::endl;
             }
-
-            counter = counter + 1;
         }
     }
-}
 
-void queryData::enlargeData(messageInfo * oldQuery) {
-    int newLength = length * 10;
-    messageInfo * newQuery = new messageInfo[newLength];
-    for(int i = 0; i < length; i++){
-        newQuery[i].time = oldQuery[i].time;
-        newQuery[i].group = oldQuery[i].group;
-        newQuery[i].name = oldQuery[i].name;
-        newQuery[i].command = oldQuery[i].command;
-        newQuery[i].commandArg = oldQuery[i].commandArg;
-
+    std::string rest;
+    getline(queryText, rest);
+    if(!rest.find('#')){
+        std::cout << rest << std::endl;
+        std::istringstream restStream;
+        restStream.str(rest);
+        restStream >> this->message.command;
+        //    std::cout << this->message.command << "  here command " << std::endl;
+        getline(restStream, arg);
+        this->message.commandArg = arg;
+        //    std::cout << this->message.commandArg << "  here commandArg " << std::endl;
     }
-    this->length = newLength;
-    this->query = newQuery;
+    else{
+        std::istringstream restStream;
+        restStream.str(rest);
+        getline(restStream, mes);
+        this->message.command = mes;
+    }
+    queryText.clear();
 }
+
 
 void queryData::printData() {
-    for(int i = 0; i < length; i ++){
-        std::cout << "time is: " << query->time << " group is: " << query->group
-                << " name is: " << query->name << " command is: " << query->command
-                << " commandArg is: " << query->commandArg << std::endl;
-    }
+    std::cout << "time is: " << message.time << " group is: " << message.group
+        << " name is: " << message.name << " command is: " << message.command
+        << " commandArg is: " << message.commandArg << std::endl;
+
+}
+
+std::string queryData::readCommand() {
+    return message.command;
 }
