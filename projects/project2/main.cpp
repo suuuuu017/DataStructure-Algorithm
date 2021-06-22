@@ -6,6 +6,7 @@
 #include <iomanip>
 
 #include "bot.h"
+#include "constants.h"
 
 int main(int argc, char * argv[]){
     std::string courseDataDir;
@@ -31,13 +32,14 @@ int main(int argc, char * argv[]){
 
     courses.printAllData();
 
-    queryData query;
+
 
     std::string line;
 
     while(getline(std::cin, line)){
         std::istringstream q;
         q.str(line);
+        queryData query;
         query.loadData(q);
         query.printData();
         std::cin.clear();
@@ -48,16 +50,27 @@ int main(int argc, char * argv[]){
         }
 
         else if(com == "#course"){
-            int dummy = courses.readNum();
-            for(int i = 0; i < dummy; i++){
-                //TODO: why here is find while # is !find
-                //TODO: what if the input command is ## in a roll
-                if((courses.readCode(i).find(query.readCommandArg()))){
-                    courses.printData(i);
+            std::string comArg = query.readCommandArg();
+            if(comArg.empty()){
+                std::cout << MISSING_KEYWORD << std::endl;
+            }
+            else {
+                int dummy = courses.readNum();
+                bool flag = false;
+                for (int i = 0; i < dummy; i++) {
+                    //TODO: why here is find while # is !find
+                    //TODO: what if the input command is ## in a roll
+                    if ((courses.readCode(i).find(query.readCommandArg())) != std::string::npos) {
+                        courses.printData(i);
+                        flag = true;
+                    }
                 }
-
+                if (!flag) {
+                    std::cout << COURSE_NOT_FOUND << std::endl;
+                }
             }
         }
+        std::cin.clear();
     }
 
 

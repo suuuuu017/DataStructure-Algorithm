@@ -88,8 +88,9 @@ void queryData::loadData(std::istream & queryText) {
     }
 
     std::string rest;
+
     getline(queryText, rest);
-    if(!rest.find('#')){
+    if(rest.find('#') != std::string::npos){
 //        std::cout << rest << std::endl;
         std::istringstream restStream;
         restStream.str(rest);
