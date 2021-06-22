@@ -17,5 +17,7 @@ public:
     int readNum();
 
     void loadData(std::ifstream &fileList);
+
+    void printData();
 };
 

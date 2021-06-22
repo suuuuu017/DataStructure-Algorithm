@@ -1,6 +1,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <iostream>
 #include "bot.h"
 
 courseData::courseData(int num) {
@@ -28,9 +29,28 @@ void courseData::loadData(std::ifstream &fileList) {
 
             while(getline(iStream, code, ',')){
                 this->course[counter].code = code;
+//                std::cout << iStream.str() << "check istream before next while" << std::endl;
+                while(getline(iStream, name, ',')) {
+                    this->course[counter].name = name;
+//                    std::cout << iStream.str() << "check istream" << std::endl;
+                    break;
+                }
+                while(getline(iStream, instructor)){
+                    this->course[counter].instructor = instructor;
+                    break;
+                }
+                break;
             }
+            counter = counter + 1;
 
         }
+    }
+}
+
+void courseData::printData(){
+    for(int i = 0; i < num; i++){
+        std::cout << course[i].code << " name is: " << course[i].name
+                    << " instructor is: " << course[i].instructor << std::endl;
     }
 }
 
