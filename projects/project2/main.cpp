@@ -29,7 +29,7 @@ int main(int argc, char * argv[]){
     courseData courses(num);
     courses.loadData(courseRead);
 
-    courses.printData();
+    courses.printAllData();
 
     queryData query;
 
@@ -43,7 +43,21 @@ int main(int argc, char * argv[]){
         std::cin.clear();
         std::string com;
         com = query.readCommand();
+        if(com == "#stop"){
+            break;
+        }
 
+        else if(com == "#course"){
+            int dummy = courses.readNum();
+            for(int i = 0; i < dummy; i++){
+                //TODO: why here is find while # is !find
+                //TODO: what if the input command is ## in a roll
+                if((courses.readCode(i).find(query.readCommandArg()))){
+                    courses.printData(i);
+                }
+
+            }
+        }
     }
 
 

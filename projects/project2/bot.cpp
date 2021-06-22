@@ -42,18 +42,26 @@ void courseData::loadData(std::ifstream &fileList) {
                 break;
             }
             counter = counter + 1;
-
         }
     }
 }
 
-void courseData::printData(){
+void courseData::printAllData(){
     for(int i = 0; i < num; i++){
         std::cout << course[i].code << " name is: " << course[i].name
                     << " instructor is: " << course[i].instructor << std::endl;
     }
 }
 
+std::string courseData::readCode(int i) {
+    return course[i].code;
+}
+
+void courseData::printData(int i){
+    std::cout << course[i].code << " name is: " << course[i].name
+        << " instructor is: " << course[i].instructor << std::endl;
+
+}
 
 queryData::queryData() {};
 
@@ -82,11 +90,13 @@ void queryData::loadData(std::istream & queryText) {
     std::string rest;
     getline(queryText, rest);
     if(!rest.find('#')){
-        std::cout << rest << std::endl;
+//        std::cout << rest << std::endl;
         std::istringstream restStream;
         restStream.str(rest);
         restStream >> this->message.command;
         //    std::cout << this->message.command << "  here command " << std::endl;
+        char ch;
+        restStream.get(ch);
         getline(restStream, arg);
         this->message.commandArg = arg;
         //    std::cout << this->message.commandArg << "  here commandArg " << std::endl;
@@ -110,4 +120,32 @@ void queryData::printData() {
 
 std::string queryData::readCommand() {
     return message.command;
+}
+
+std::string queryData::readCommandArg() {
+    return message.commandArg;
+}
+
+groupData::groupData(int num) {
+    this->num = num;
+    this->group = new groupName[num];
+}
+
+void groupData::loadData(std::ifstream &fileList) {
+    int counter = 0;
+    //TODO: what is the loaded file has more lines than indicated
+    while(fileList) {
+        if (fileList) {
+            std::string line;
+            std::getline(fileList, line);
+            this->group[counter].name = line;
+            counter = counter + 1;
+        }
+    }
+}
+
+void groupData::printData() {
+    for(int i = 0; i < num; i++){
+        std::cout << group[i].name << " name is: " << std::endl;
+    }
 }

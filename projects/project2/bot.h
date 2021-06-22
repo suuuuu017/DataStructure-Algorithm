@@ -18,7 +18,11 @@ public:
 
     void loadData(std::ifstream &fileList);
 
-    void printData();
+    void printAllData();
+
+    std::string readCode(int i);
+
+    void printData(int i);
 };
 
 struct messageInfo{
@@ -41,5 +45,24 @@ public:
     void printData();
 
     std::string readCommand();
+
+    std::string readCommandArg();
+};
+
+struct groupName{
+    std::string name;
+};
+
+class groupData{
+private:
+    int num;
+    groupName *group;
+
+public:
+    groupData(int num);
+
+    void loadData(std::ifstream &fileList);
+
+    void printData();
 };
 
