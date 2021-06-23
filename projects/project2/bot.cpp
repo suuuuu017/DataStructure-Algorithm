@@ -138,8 +138,9 @@ std::string queryData::readTime() {
 groupList::groupList() {
 }
 
-groupList::groupList(int numOfAdmin) {
-    adminList = new adminName[numOfAdmin];
+adminName * groupList::admin(int numOfAdmin) {
+    adminName * adminL = new adminName[numOfAdmin];
+    return adminL;
 }
 
 groupData::groupData(int numofGroup, std::string detailedListDir) {
@@ -161,11 +162,51 @@ void groupData::loadData(std::ifstream &fileList) {
     }
 }
 
+void groupData::loadDetailedAdmin() {
+    for(int i = 0; i < numOfGroup; i++){
+        std::string adminFileAdd;
+        adminFileAdd = detailedList + '/' + readGroupName(i);
+        std::ifstream admNameRead;
+        admNameRead.open(adminFileAdd);
+        std::string numAdminThisGroup;
+        getline(admNameRead, numAdminThisGroup);
+        std::istringstream numAdminThisGroupNum;
+        numAdminThisGroupNum.str(numAdminThisGroup);
+        int numAdmin;
+        numAdminThisGroupNum >> numAdmin;
+
+        std::cout << numAdmin << " is the number correct" << std::endl;
+
+        this->group[i].numOfAdmin = numAdmin;
+        this->group[i].adminList = group->admin(numAdmin);
+
+        for(int j = 0; j < this->group[i].numOfAdmin; j ++){
+            std::string name;
+            getline(admNameRead, name);
+            std::cout << name << " is the name correct" << std::endl;
+            this->group[i].adminList[j].name = name;
+        }
+
+    }
+}
+
+std::string groupData::readGroupName(int i) {
+    return group[i].name;
+}
+
 void groupData::printData() {
     std::cout << numOfGroup << " the num of group" << std::endl;
     std::cout << detailedList << " here is where to find the detail" << std::endl;
     for(int i = 0; i < numOfGroup; i++){
         std::cout << group[i].name << " name is: "
                  << std::endl;
+        for(int j = 0; j < group[i].numOfAdmin ; j ++){
+            std::cout << group[i].adminList[j].name << " detailed name is: "
+                      << std::endl;
+        }
     }
 }
+
+
+
+

@@ -65,7 +65,7 @@ public:
 
     groupList();
 
-    groupList(int numOfAdmin);
+    adminName * admin(int numOfAdmin);
 };
 
 class groupData{
@@ -78,6 +78,10 @@ public:
     groupData(int numofGroup, std::string detailedListDir);
 
     void loadData(std::ifstream &fileList);
+
+    void loadDetailedAdmin();
+
+    std::string readGroupName(int i);
 
     void printData();
 };

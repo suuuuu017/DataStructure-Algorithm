@@ -53,8 +53,12 @@ int main(int argc, char * argv[]){
 
     groupData groups(numGroup, detailedListDir);
     groups.loadData(groupDataRead);
+    groups.loadDetailedAdmin();
+
 
     groups.printData();
+
+    groupDataRead.close();
 
     std::string line;
 
