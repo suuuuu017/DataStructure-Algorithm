@@ -62,9 +62,9 @@ std::string courseData::readInstructor(int i){
 }
 
 void courseData::printData(int i){
-    std::cout << course[i].code << " name is: " << course[i].name
-        << " instructor is: " << course[i].instructor << std::endl;
-
+    std::cout << "Course Code: " << course[i].code << std::endl
+        << "Course Name: " << course[i].name << std::endl
+        << "Instructor: " << course[i].instructor << std::endl;
 }
 
 queryData::queryData() {};

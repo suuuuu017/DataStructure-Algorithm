@@ -72,6 +72,7 @@ int main(int argc, char * argv[]){
         q.str(line);
         queryData query;
         query.loadData(q);
+        //TODO: test if there is space around the comma
         query.printData();
         std::cin.clear();
 
@@ -106,10 +107,12 @@ int main(int argc, char * argv[]){
             }
             if(adminFlag){
                 std::cout << EXIT_PROMPT << std::endl;
+                std::cout << std::endl;
                 break;
             }
             else{
                 std::cout << STOP_BOT_FAIL <<std::endl;
+                std::cout << std::endl;
             }
         }
 
@@ -133,6 +136,7 @@ int main(int argc, char * argv[]){
                     std::cout << COURSE_NOT_FOUND << std::endl;
                 }
             }
+            std::cout << std::endl;
         }
 
         else if(com == "#instructor"){
@@ -143,26 +147,58 @@ int main(int argc, char * argv[]){
             else {
                 int dummy = courses.readNum();
                 bool flag = false;
+                std::string nameBook[dummy];
+                int nameCounter = 0;
                 for (int i = 0; i < dummy; i++) {
                     if ((courses.readInstructor(i).find(query.readCommandArg())) != std::string::npos) {
-                        courses.printData(i);
+                        for(int j = 0; j < dummy; j++){
+                            if(nameBook[j] == courses.readInstructor(i)){
+//                                std::cout << "here! " << courses.readInstructor(i) << std::endl;
+                                break;
+                            }
+                            else{
+//                                std::cout << "here " << courses.readInstructor(i) << std::endl;
+                                nameBook[nameCounter] = courses.readInstructor(i);
+                                nameCounter = nameCounter + 1;
+                                std::cout << nameCounter << std::endl;
+                                break;
+                            }
+                        }
+//                        courses.printData(i);
                         flag = true;
                     }
+                }
+                std::cout << nameCounter << std::endl;
+                for(int i = 0; i < nameCounter; i++){
+                    std::cout << nameBook[i] << std::endl;
+                }
+                for(int i = 0; i < nameCounter; i++){
+                    std::cout << "Instructor: " << nameBook[i] << std::endl;
+                    std::cout << "Courses:";
+                    for (int j = 0; j < dummy; j++) {
+                        if ((courses.readInstructor(j).find(nameBook[i])) != std::string::npos) {
+                            std::cout << " " << courses.readCode(j);
+                        }
+                    }
+                    std::cout << std::endl;
                 }
                 if (!flag) {
                     std::cout << FACULTY_NOT_FOUND << std::endl;
                 }
             }
+            std::cout << std::endl;
         }
 
         else if(com == "#time"){
             //TODO: what do if the command is time1
             std::string comArg = query.readCommandArg();
             std::cout << query.readTime() << std::endl;
+            std::cout << std::endl;
         }
 
         else if(com == "#help"){
             std::cout << HELP_TEXT << std::endl;
+            std::cout << std::endl;
         }
 
         else{
@@ -183,8 +219,10 @@ int main(int argc, char * argv[]){
                     }
                 }
                 if(choice == 0){
-                    std::cout << std::endl;
                 }
+                //TODO: does do nothing needs to print out an empty line
+                //TODO: check if the command can be empty
+                std::cout << std::endl;
             }
         }
 
