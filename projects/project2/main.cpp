@@ -10,11 +10,34 @@
 #include "rand.h"
 
 int main(int argc, char * argv[]){
+    if(argc < 4 ){
+        std::cout << MISSING_ARGUMENT_MESSAGE << std::endl;
+        //TODO: does this need an empty line?
+        return 1;
+    }
+    if(argc > 4 ){
+        //TODO: what if argument is more than 3
+        return 1;
+    }
+    std::string checkSeed;
+    checkSeed = argv[3];
+    for(int i = 0; i < checkSeed.length(); i++){
+        if(!isdigit(checkSeed[i])){
+            std::cout << INVALID_ARGUMENT_MESSAGE << std::endl;
+            //TODO: does this need an empty line?
+            return 1;
+        }
+    }
     std::string courseDataDir;
     courseDataDir = argv[1];
     //TODO program argument check
     std::ifstream courseRead;
     courseRead.open(courseDataDir);
+    if(courseRead.fail()){
+        std::cout << CANNOT_OPEN_FILE_PREFIX << courseDataDir << std::endl;
+        //TODO: does this need an empty line?
+        return 1;
+    }
 
     std::string numOfCourse;
     int num;
@@ -39,6 +62,11 @@ int main(int argc, char * argv[]){
     groupDataDir = argv[2];
     std::ifstream groupDataRead;
     groupDataRead.open(groupDataDir);
+    if(groupDataRead.fail()){
+        std::cout << CANNOT_OPEN_FILE_PREFIX << groupDataDir << std::endl;
+        //TODO: does this need an empty line?
+        return 1;
+    }
     std::string detailedListDir;
     std::string numOfGroup;
     while(groupDataRead){
