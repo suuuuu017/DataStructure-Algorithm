@@ -7,10 +7,12 @@
 
 #include "bot.h"
 #include "constants.h"
+#include "rand.h"
 
 int main(int argc, char * argv[]){
     std::string courseDataDir;
     courseDataDir = argv[1];
+    //TODO program argument check
     std::ifstream courseRead;
     courseRead.open(courseDataDir);
 
@@ -62,6 +64,9 @@ int main(int argc, char * argv[]){
 
     std::string line;
 
+    int randomSeed = atoi(argv[3]);
+    initializeWithSeed(randomSeed);
+
     while(getline(std::cin, line)){
         std::istringstream q;
         q.str(line);
@@ -81,10 +86,10 @@ int main(int argc, char * argv[]){
             }
         }
 
-        if(!findGroup){
-            //TODO: check if it will break out here
-            break;
-        }
+//        if(!findGroup){
+//            //TODO: check if it will break out here
+//            break;
+//        }
 
         std::string com;
         com = query.readCommand();
@@ -100,6 +105,7 @@ int main(int argc, char * argv[]){
                 }
             }
             if(adminFlag){
+                std::cout << EXIT_PROMPT << std::endl;
                 break;
             }
             else{
@@ -129,6 +135,26 @@ int main(int argc, char * argv[]){
             }
         }
 
+        else if(com == "#instructor"){
+            std::string comArg = query.readCommandArg();
+            if(comArg.empty()){
+                std::cout << MISSING_KEYWORD << std::endl;
+            }
+            else {
+                int dummy = courses.readNum();
+                bool flag = false;
+                for (int i = 0; i < dummy; i++) {
+                    if ((courses.readInstructor(i).find(query.readCommandArg())) != std::string::npos) {
+                        courses.printData(i);
+                        flag = true;
+                    }
+                }
+                if (!flag) {
+                    std::cout << FACULTY_NOT_FOUND << std::endl;
+                }
+            }
+        }
+
         else if(com == "#time"){
             //TODO: what do if the command is time1
             std::string comArg = query.readCommandArg();
@@ -137,6 +163,29 @@ int main(int argc, char * argv[]){
 
         else if(com == "#help"){
             std::cout << HELP_TEXT << std::endl;
+        }
+
+        else{
+            if(!query.readCommand().empty()){
+//                std::cout << query.readCommand() << " to repeat" << std::endl;
+
+                RespChoice choice = randomResponse();
+//                std::cout << choice << " to repeat" << std::endl;
+                if(choice == 1){
+                    std::cout << query.readCommand() << std::endl;
+                }
+                if(choice == 2){
+                    if(flipCoin()){
+                        std::cout << "Respect " << query.readCommand() << std::endl;
+                    }
+                    else{
+                        std::cout << "I really admire " << query.readCommand() << std::endl;
+                    }
+                }
+                if(choice == 0){
+                    std::cout << std::endl;
+                }
+            }
         }
 
         std::cin.clear();

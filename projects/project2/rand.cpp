@@ -47,6 +47,7 @@
 
 #include <cstdio>
 #include <cassert>
+#include <iostream>
 
 #include "rand.h"
 
@@ -208,6 +209,7 @@ int flipCoin() {
 RespChoice randomResponse() {
     const int max = 10000;
     int ret = randomInt(1, max);
+//    std::cout << "random int is" << ret << std::endl;
     if (ret <= REPEAT_ROLL * max / 100) {
         return REPEAT;
     } else if (ret <= (REPEAT_ROLL + ADMIRE_ROLL) * max / 100) {
