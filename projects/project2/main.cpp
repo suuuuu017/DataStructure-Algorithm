@@ -70,6 +70,17 @@ int main(int argc, char * argv[]){
                 }
             }
         }
+
+        else if(com == "#time"){
+            //TODO: what do if the command is time1
+            std::string comArg = query.readCommandArg();
+            std::cout << query.readTime() << std::endl;
+        }
+
+        else if(com == "#help"){
+            std::cout << HELP_TEXT << std::endl;
+        }
+
         std::cin.clear();
     }
 

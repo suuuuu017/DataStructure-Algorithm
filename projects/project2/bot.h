@@ -22,6 +22,8 @@ public:
 
     std::string readCode(int i);
 
+    std::string readInstructor(int i);
+
     void printData(int i);
 };
 
@@ -47,6 +49,8 @@ public:
     std::string readCommand();
 
     std::string readCommandArg();
+
+    std::string readTime();
 };
 
 struct groupName{

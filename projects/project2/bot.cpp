@@ -57,6 +57,10 @@ std::string courseData::readCode(int i) {
     return course[i].code;
 }
 
+std::string courseData::readInstructor(int i){
+    return course[i].instructor;
+}
+
 void courseData::printData(int i){
     std::cout << course[i].code << " name is: " << course[i].name
         << " instructor is: " << course[i].instructor << std::endl;
@@ -125,6 +129,10 @@ std::string queryData::readCommand() {
 
 std::string queryData::readCommandArg() {
     return message.commandArg;
+}
+
+std::string queryData::readTime() {
+    return message.time;
 }
 
 groupData::groupData(int num) {
