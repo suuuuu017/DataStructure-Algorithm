@@ -30,9 +30,31 @@ int main(int argc, char * argv[]){
     courseData courses(num);
     courses.loadData(courseRead);
 
-    courses.printAllData();
+    courseRead.close();
+//    courses.printAllData();
 
+    std::string groupDataDir;
+    groupDataDir = argv[2];
+    std::ifstream groupDataRead;
+    groupDataRead.open(groupDataDir);
+    std::string detailedListDir;
+    std::string numOfGroup;
+    while(groupDataRead){
+        getline(groupDataRead, detailedListDir);
+        break;
+    }
+    if(groupDataRead){
+        getline(groupDataRead, numOfGroup);
+    }
+    std::istringstream numG;
+    numG.str(numOfGroup);
+    int numGroup;
+    numG >> numGroup;
 
+    groupData groups(numGroup, detailedListDir);
+    groups.loadData(groupDataRead);
+
+    groups.printData();
 
     std::string line;
 

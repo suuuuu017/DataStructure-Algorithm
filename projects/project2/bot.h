@@ -53,17 +53,29 @@ public:
     std::string readTime();
 };
 
-struct groupName{
+struct adminName{
     std::string name;
+};
+
+class groupList{
+public:
+    std::string name;
+    int numOfAdmin;
+    adminName *adminList;
+
+    groupList();
+
+    groupList(int numOfAdmin);
 };
 
 class groupData{
 private:
-    int num;
-    groupName *group;
+    int numOfGroup;
+    std::string detailedList;
+    groupList *group;
 
 public:
-    groupData(int num);
+    groupData(int numofGroup, std::string detailedListDir);
 
     void loadData(std::ifstream &fileList);
 

@@ -135,9 +135,17 @@ std::string queryData::readTime() {
     return message.time;
 }
 
-groupData::groupData(int num) {
-    this->num = num;
-    this->group = new groupName[num];
+groupList::groupList() {
+}
+
+groupList::groupList(int numOfAdmin) {
+    adminList = new adminName[numOfAdmin];
+}
+
+groupData::groupData(int numofGroup, std::string detailedListDir) {
+    this->numOfGroup = numofGroup;
+    this->detailedList = detailedListDir;
+    this->group = new groupList[numofGroup];
 }
 
 void groupData::loadData(std::ifstream &fileList) {
@@ -154,7 +162,10 @@ void groupData::loadData(std::ifstream &fileList) {
 }
 
 void groupData::printData() {
-    for(int i = 0; i < num; i++){
-        std::cout << group[i].name << " name is: " << std::endl;
+    std::cout << numOfGroup << " the num of group" << std::endl;
+    std::cout << detailedList << " here is where to find the detail" << std::endl;
+    for(int i = 0; i < numOfGroup; i++){
+        std::cout << group[i].name << " name is: "
+                 << std::endl;
     }
 }
