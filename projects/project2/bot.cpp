@@ -94,7 +94,8 @@ void queryData::loadData(std::istream & queryText) {
     std::string rest;
 
     getline(queryText, rest);
-    if(rest.find('#') != std::string::npos){
+//    std::cout << rest.find_first_of('#') << std::endl;
+    if(rest.find('#') != std::string::npos && (!rest.find_first_of('#'))){
 //        std::cout << rest << std::endl;
         std::istringstream restStream;
         restStream.str(rest);
@@ -160,7 +161,7 @@ groupData::groupData(int numofGroup, std::string detailedListDir) {
 void groupData::loadData(std::ifstream &fileList) {
     int counter = 0;
     //TODO: what is the loaded file has more lines than indicated
-    while(fileList) {
+    while(fileList && counter < numOfGroup) {
         if (fileList) {
             std::string line;
             std::getline(fileList, line);
@@ -183,7 +184,7 @@ void groupData::loadDetailedAdmin() {
         int numAdmin;
         numAdminThisGroupNum >> numAdmin;
 
-        std::cout << numAdmin << " is the number correct" << std::endl;
+//        std::cout << numAdmin << " is the number correct" << std::endl;
 
         this->group[i].numOfAdmin = numAdmin;
         this->group[i].adminList = group->admin(numAdmin);
@@ -191,7 +192,7 @@ void groupData::loadDetailedAdmin() {
         for(int j = 0; j < this->group[i].numOfAdmin; j ++){
             std::string name;
             getline(admNameRead, name);
-            std::cout << name << " is the name correct" << std::endl;
+//            std::cout << name << " is the name correct" << std::endl;
             this->group[i].adminList[j].name = name;
         }
 
