@@ -135,6 +135,14 @@ std::string queryData::readTime() {
     return message.time;
 }
 
+std::string queryData::readGroup() {
+    return message.group;
+}
+
+std::string queryData::readName() {
+    return message.name;
+}
+
 groupList::groupList() {
 }
 
@@ -194,6 +202,18 @@ std::string groupData::readGroupName(int i) {
     return group[i].name;
 }
 
+int groupData::readnumOfGroup() {
+    return numOfGroup;
+}
+
+int groupData::readNumAdmin(int groupNum) {
+    return group[groupNum].numOfAdmin;
+}
+
+std::string groupData::readNumAdmin(int groupNum, int adminNum) {
+    return group[groupNum].adminList[adminNum].name;
+}
+
 void groupData::printData() {
     std::cout << numOfGroup << " the num of group" << std::endl;
     std::cout << detailedList << " here is where to find the detail" << std::endl;
@@ -206,6 +226,11 @@ void groupData::printData() {
         }
     }
 }
+
+
+
+
+
 
 
 

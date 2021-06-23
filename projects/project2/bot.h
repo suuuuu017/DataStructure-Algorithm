@@ -51,6 +51,11 @@ public:
     std::string readCommandArg();
 
     std::string readTime();
+
+    std::string readGroup();
+
+    std::string readName();
+
 };
 
 struct adminName{
@@ -82,6 +87,12 @@ public:
     void loadDetailedAdmin();
 
     std::string readGroupName(int i);
+
+    int readnumOfGroup();
+
+    int readNumAdmin(int groupNum);
+
+    std::string readNumAdmin(int groupNum, int adminNum);
 
     void printData();
 };

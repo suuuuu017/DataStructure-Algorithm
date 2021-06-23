@@ -69,10 +69,42 @@ int main(int argc, char * argv[]){
         query.loadData(q);
         query.printData();
         std::cin.clear();
+
+        std::string comGroup;
+        comGroup = query.readGroup();
+
+        bool findGroup = false;
+
+        for(int i = 0; i < groups.readnumOfGroup(); i++){
+            if(comGroup == groups.readGroupName(i)){
+                findGroup = true;
+            }
+        }
+
+        if(!findGroup){
+            //TODO: check if it will break out here
+            break;
+        }
+
         std::string com;
         com = query.readCommand();
         if(com == "#stop"){
-            break;
+            bool adminFlag = false;
+            for(int i = 0; i < groups.readnumOfGroup(); i++){
+                if(groups.readGroupName(i) == comGroup){
+                    for(int j = 0; j < groups.readNumAdmin(i); j++){
+                        if(query.readName() == groups.readNumAdmin(i, j)){
+                            adminFlag = true;
+                        }
+                    }
+                }
+            }
+            if(adminFlag){
+                break;
+            }
+            else{
+                std::cout << STOP_BOT_FAIL <<std::endl;
+            }
         }
 
         else if(com == "#course"){
