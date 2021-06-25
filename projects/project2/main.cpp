@@ -10,6 +10,7 @@
 #include "rand.h"
 
 int main(int argc, char * argv[]){
+    //check the program input argument
     if(argc < 4 ){
         std::cout << MISSING_ARGUMENT_MESSAGE << std::endl;
         return 0;
@@ -17,6 +18,8 @@ int main(int argc, char * argv[]){
     if(argc > 4 ){
         return 0;
     }
+
+    //check the random seed
     std::string checkSeed;
     checkSeed = argv[3];
     for(long unsigned int i = 0; i < checkSeed.length(); i++){
@@ -25,6 +28,8 @@ int main(int argc, char * argv[]){
             return 0;
         }
     }
+
+    //load course data file
     std::string courseDataDir;
     courseDataDir = argv[1];
     std::ifstream courseRead;
@@ -44,13 +49,12 @@ int main(int argc, char * argv[]){
     numC.str(numOfCourse);
     numC >> num;
 
-
     courseData courses(num);
     courses.loadData(courseRead);
 
     courseRead.close();
-//    courses.printAllData();
 
+    //load group data file
     std::string groupDataDir;
     groupDataDir = argv[2];
     std::ifstream groupDataRead;
@@ -77,27 +81,30 @@ int main(int argc, char * argv[]){
     groups.loadData(groupDataRead);
     groups.loadDetailedAdmin();
 
-
-//    groups.printData();
-
     groupDataRead.close();
 
     std::string line;
 
+    //initialize ramdom seed
     int randomSeed = atoi(argv[3]);
     initializeWithSeed(randomSeed);
+
+    //read cin
     while(getline(std::cin, line)){
+
+        //load query message
         std::istringstream q;
         q.str(line);
         queryData query;
         query.loadData(q);
-//        query.printData();
         std::cin.clear();
 
         std::string comGroup;
         comGroup = query.readGroup();
 
         bool findGroup = false;
+
+        //check if the message is from a legal group
 
         for(int i = 0; i < groups.readnumOfGroup(); i++){
             if(comGroup == groups.readGroupName(i)){
@@ -109,6 +116,10 @@ int main(int argc, char * argv[]){
 
             std::string com;
             com = query.readCommand();
+
+            //process the command
+
+            //stop command
             if (com == "#stop") {
                 bool adminFlag = false;
                 for (int i = 0; i < groups.readnumOfGroup(); i++) {
@@ -130,6 +141,8 @@ int main(int argc, char * argv[]){
                     std::cout << std::endl;
                 }
             }
+
+            //course command
             else if (com == "#course") {
                 std::string comArg = query.readCommandArg();
                 if (comArg.empty()) {
@@ -149,6 +162,8 @@ int main(int argc, char * argv[]){
                 }
                 std::cout << std::endl;
             }
+
+            //instructor command
             else if (com == "#instructor") {
                 std::string comArg = query.readCommandArg();
                 if (comArg.empty()) {
@@ -173,8 +188,6 @@ int main(int argc, char * argv[]){
                                 nameCounter = nameCounter + 1;
                             }
 
-
-
                             flag = true;
                         }
                     }
@@ -194,15 +207,21 @@ int main(int argc, char * argv[]){
                 }
                 std::cout << std::endl;
             }
+
+            //time command
             else if (com == "#time") {
                 std::string comArg = query.readCommandArg();
                 std::cout << query.readTime() << std::endl;
                 std::cout << std::endl;
             }
+
+            //help command
             else if (com == "#help") {
                 std::cout << HELP_TEXT << std::endl;
                 std::cout << std::endl;
             }
+
+            //random repeat behaviour
             else {
                 if (!query.readCommand().empty()) {
 
