@@ -166,25 +166,31 @@ int main(int argc, char * argv[]){
                 std::string comArg = query.readCommandArg();
                 if (comArg.empty()) {
                     std::cout << MISSING_KEYWORD << std::endl;
-                } else {
+                }
+                else {
                     int dummy = courses.readNum();
                     bool flag = false;
                     std::string nameBook[dummy];
                     int nameCounter = 0;
                     for (int i = 0; i < dummy; i++) {
                         if ((courses.readInstructor(i).find(query.readCommandArg())) != std::string::npos) {
+                            bool findInstructor = false;
                             for (int j = 0; j < dummy; j++) {
                                 if (nameBook[j] == courses.readInstructor(i)) {
-//                                std::cout << "here! " << courses.readInstructor(i) << std::endl;
-                                    break;
-                                } else {
-//                                std::cout << "here " << courses.readInstructor(i) << std::endl;
-                                    nameBook[nameCounter] = courses.readInstructor(i);
-                                    nameCounter = nameCounter + 1;
-//                                    std::cout << nameCounter << std::endl;
+//                                    std::cout << courses.readInstructor(i) << std::endl;
+                                    findInstructor = true;
                                     break;
                                 }
                             }
+//                            std::cout << courses.readInstructor(i) << std::endl;
+                            if(!findInstructor){
+                                nameBook[nameCounter] = courses.readInstructor(i);
+                                nameCounter = nameCounter + 1;
+                            }
+
+//                                    std::cout << nameCounter << std::endl;
+
+
 //                        courses.printData(i);
                             flag = true;
                         }
@@ -226,13 +232,13 @@ int main(int argc, char * argv[]){
                     RespChoice choice = randomResponse();
 //                std::cout << choice << " to repeat" << std::endl;
                     if (choice == 1) {
-                        std::cout << query.readCommand() << std::endl;
+                        std::cout << query.readCommand() << query.readCommandArg() << std::endl;
                     }
                     if (choice == 2) {
                         if (flipCoin()) {
-                            std::cout << "Respect " << query.readCommand() << std::endl;
+                            std::cout << "Respect " << query.readCommand() << query.readCommandArg()  << std::endl;
                         } else {
-                            std::cout << "I really admire " << query.readCommand() << std::endl;
+                            std::cout << "I really admire " << query.readCommand() << query.readCommandArg()  << std::endl;
                         }
                     }
                     if (choice == 0) {
@@ -243,27 +249,28 @@ int main(int argc, char * argv[]){
                 }
             }
 
-            if (query.readCommandArg() == "#stop") {
-                bool adminFlag = false;
-                for (int i = 0; i < groups.readnumOfGroup(); i++) {
-                    if (groups.readGroupName(i) == comGroup) {
-                        for (int j = 0; j < groups.readNumAdmin(i); j++) {
-                            if (query.readName() == groups.readNumAdmin(i, j)) {
-                                adminFlag = true;
-                            }
-                        }
-                    }
-                }
-                if (adminFlag) {
-                    std::cout << EXIT_PROMPT << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-                else {
-                    std::cout << STOP_BOT_FAIL << std::endl;
-                    std::cout << std::endl;
-                }
-            }
+//            if (query.readCommandArg() == "#stop") {
+//                //TODO: check out the correct order to do #stop #time or #time #stop
+//                bool adminFlag = false;
+//                for (int i = 0; i < groups.readnumOfGroup(); i++) {
+//                    if (groups.readGroupName(i) == comGroup) {
+//                        for (int j = 0; j < groups.readNumAdmin(i); j++) {
+//                            if (query.readName() == groups.readNumAdmin(i, j)) {
+//                                adminFlag = true;
+//                            }
+//                        }
+//                    }
+//                }
+//                if (adminFlag) {
+//                    std::cout << EXIT_PROMPT << std::endl;
+//                    std::cout << std::endl;
+//                    break;
+//                }
+//                else {
+//                    std::cout << STOP_BOT_FAIL << std::endl;
+//                    std::cout << std::endl;
+//                }
+//            }
         }
 
         std::cin.clear();

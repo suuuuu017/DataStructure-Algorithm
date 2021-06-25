@@ -95,16 +95,29 @@ void queryData::loadData(std::istream & queryText) {
 
     getline(queryText, rest);
 //    std::cout << rest.find_first_of('#') << std::endl;
-    if(rest.find('#') != std::string::npos && (!rest.find_first_of('#'))){
+    if((rest.find('#') != std::string::npos && (!rest.find_first_of('#')))){
 //        std::cout << rest << std::endl;
         std::istringstream restStream;
         restStream.str(rest);
         restStream >> this->message.command;
         //    std::cout << this->message.command << "  here command " << std::endl;
-        char ch;
-        restStream.get(ch);
-        getline(restStream, arg);
-        this->message.commandArg = arg;
+//        char ch = '\0';
+//        while(ch == ' '){
+//            restStream.get(ch);
+//        }
+        if(this->message.command == "#course" ||
+            this->message.command == "#instructor"||
+            this->message.command == "#help"||
+            this->message.command == "#time"||
+            this->message.command == "#stop"){
+            restStream >> this->message.commandArg;
+        }
+        else{
+            getline(restStream, arg);
+            this->message.commandArg = arg;
+        }
+//        getline(restStream, arg);
+//        this->message.commandArg = arg;
         //    std::cout << this->message.commandArg << "  here commandArg " << std::endl;
     }
     else{

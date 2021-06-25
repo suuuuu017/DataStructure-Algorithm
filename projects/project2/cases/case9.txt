@@ -1,0 +1,14 @@
+2021-06-11 11:32:09,megakushi,Marry,#course 450
+2021-06-11 11:32:10,megakushi,Ayano,#course 280
+2021-06-11 11:32:11,megakushi,Seto,#course 243
+2021-06-11 11:32:12,megakushi,Shintaro,#course VY
+2021-06-11 11:32:13,megakushi,Ayano,#instructor Paul
+2021-06-11 11:32:14,megakushi,Ayano,#instructor Manuel
+2021-06-11 11:32:15,megakushi,Shintaro,#instructor ShiLi
+2021-06-11 11:32:16,megakushi,Kano,#instructor manuel
+2021-06-11 11:32:17,megakushi,Momo,#courseve280 ve280
+2021-06-11 11:32:18,megakushi,Kano,#course        ve280
+2021-06-11 11:32:19,megakushi,Konoha,  #course ve280
+2021-06-11 11:32:20,megakushi,Shintaro,#course
+2021-06-11 11:32:21,megakushi,Konoha,#course 
+2021-06-11 11:32:22,megakushi,Hatsune Miku,#stop
