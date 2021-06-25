@@ -12,11 +12,9 @@
 int main(int argc, char * argv[]){
     if(argc < 4 ){
         std::cout << MISSING_ARGUMENT_MESSAGE << std::endl;
-        //TODO: does this need an empty line?
         return 0;
     }
     if(argc > 4 ){
-        //TODO: what if argument is more than 3
         return 0;
     }
     std::string checkSeed;
@@ -24,18 +22,15 @@ int main(int argc, char * argv[]){
     for(long unsigned int i = 0; i < checkSeed.length(); i++){
         if(!isdigit(checkSeed[i])){
             std::cout << INVALID_ARGUMENT_MESSAGE << std::endl;
-            //TODO: does this need an empty line?
             return 0;
         }
     }
     std::string courseDataDir;
     courseDataDir = argv[1];
-    //TODO program argument check
     std::ifstream courseRead;
     courseRead.open(courseDataDir);
     if(courseRead.fail()){
         std::cout << CANNOT_OPEN_FILE_PREFIX << courseDataDir << std::endl;
-        //TODO: does this need an empty line?
         return 0;
     }
 
@@ -43,14 +38,12 @@ int main(int argc, char * argv[]){
     int num;
     while(courseRead){
         getline(courseRead, numOfCourse);
-//        std::cout << "num is string " << numOfCourse;
         break;
     }
     std::istringstream numC;
     numC.str(numOfCourse);
     numC >> num;
 
-//    std::cout << "num is " << num;
 
     courseData courses(num);
     courses.loadData(courseRead);
@@ -64,7 +57,6 @@ int main(int argc, char * argv[]){
     groupDataRead.open(groupDataDir);
     if(groupDataRead.fail()){
         std::cout << CANNOT_OPEN_FILE_PREFIX << groupDataDir << std::endl;
-        //TODO: does this need an empty line?
         return 0;
     }
     std::string detailedListDir;
@@ -80,7 +72,7 @@ int main(int argc, char * argv[]){
     numG.str(numOfGroup);
     int numGroup;
     numG >> numGroup;
-//
+
     groupData groups(numGroup, detailedListDir);
     groups.loadData(groupDataRead);
     groups.loadDetailedAdmin();
@@ -95,12 +87,10 @@ int main(int argc, char * argv[]){
     int randomSeed = atoi(argv[3]);
     initializeWithSeed(randomSeed);
     while(getline(std::cin, line)){
-//        std::cout << line << std::endl;
         std::istringstream q;
         q.str(line);
         queryData query;
         query.loadData(q);
-        //TODO: test if there is space around the comma
 //        query.printData();
         std::cin.clear();
 
@@ -116,7 +106,6 @@ int main(int argc, char * argv[]){
         }
 
         if(findGroup) {
-            //TODO: check if it will break out here
 
             std::string com;
             com = query.readCommand();
@@ -149,8 +138,6 @@ int main(int argc, char * argv[]){
                     int dummy = courses.readNum();
                     bool flag = false;
                     for (int i = 0; i < dummy; i++) {
-                        //TODO: why here is find while # is !find
-                        //TODO: what if the input command is ## in a roll
                         if ((courses.readCode(i).find(query.readCommandArg())) != std::string::npos) {
                             courses.printData(i);
                             flag = true;
@@ -177,28 +164,20 @@ int main(int argc, char * argv[]){
                             bool findInstructor = false;
                             for (int j = 0; j < dummy; j++) {
                                 if (nameBook[j] == courses.readInstructor(i)) {
-//                                    std::cout << courses.readInstructor(i) << std::endl;
                                     findInstructor = true;
                                     break;
                                 }
                             }
-//                            std::cout << courses.readInstructor(i) << std::endl;
                             if(!findInstructor){
                                 nameBook[nameCounter] = courses.readInstructor(i);
                                 nameCounter = nameCounter + 1;
                             }
 
-//                                    std::cout << nameCounter << std::endl;
 
 
-//                        courses.printData(i);
                             flag = true;
                         }
                     }
-//                    std::cout << nameCounter << std::endl;
-//                    for (int i = 0; i < nameCounter; i++) {
-//                        std::cout << nameBook[i] << std::endl;
-//                    }
                     for (int i = 0; i < nameCounter; i++) {
                         std::cout << "Instructor: " << nameBook[i] << std::endl;
                         std::cout << "Courses:";
@@ -216,7 +195,6 @@ int main(int argc, char * argv[]){
                 std::cout << std::endl;
             }
             else if (com == "#time") {
-                //TODO: what do if the command is time1
                 std::string comArg = query.readCommandArg();
                 std::cout << query.readTime() << std::endl;
                 std::cout << std::endl;
@@ -227,10 +205,8 @@ int main(int argc, char * argv[]){
             }
             else {
                 if (!query.readCommand().empty()) {
-//                std::cout << query.readCommand() << " to repeat" << std::endl;
 
                     RespChoice choice = randomResponse();
-//                std::cout << choice << " to repeat" << std::endl;
                     if (choice == 1) {
                         std::cout << query.readCommand() << query.readCommandArg() << std::endl;
                     }
@@ -243,34 +219,9 @@ int main(int argc, char * argv[]){
                     }
                     if (choice == 0) {
                     }
-                    //TODO: does do nothing needs to print out an empty line
-                    //TODO: check if the command can be empty
                     std::cout << std::endl;
                 }
             }
-
-//            if (query.readCommandArg() == "#stop") {
-//                //TODO: check out the correct order to do #stop #time or #time #stop
-//                bool adminFlag = false;
-//                for (int i = 0; i < groups.readnumOfGroup(); i++) {
-//                    if (groups.readGroupName(i) == comGroup) {
-//                        for (int j = 0; j < groups.readNumAdmin(i); j++) {
-//                            if (query.readName() == groups.readNumAdmin(i, j)) {
-//                                adminFlag = true;
-//                            }
-//                        }
-//                    }
-//                }
-//                if (adminFlag) {
-//                    std::cout << EXIT_PROMPT << std::endl;
-//                    std::cout << std::endl;
-//                    break;
-//                }
-//                else {
-//                    std::cout << STOP_BOT_FAIL << std::endl;
-//                    std::cout << std::endl;
-//                }
-//            }
         }
 
         std::cin.clear();
