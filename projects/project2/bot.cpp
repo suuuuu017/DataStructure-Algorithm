@@ -29,10 +29,8 @@ void courseData::loadData(std::ifstream &fileList) {
 
             while(getline(iStream, code, ',')){
                 this->course[counter].code = code;
-//                std::cout << iStream.str() << "check istream before next while" << std::endl;
                 while(getline(iStream, name, ',')) {
                     this->course[counter].name = name;
-//                    std::cout << iStream.str() << "check istream" << std::endl;
                     break;
                 }
                 while(getline(iStream, instructor)){
@@ -80,13 +78,10 @@ void queryData::loadData(std::istream & queryText) {
 
     if(getline(queryText, time, ',')){
         this->message.time = time;
-//        std::cout << time << "  here time " << std::endl;
         if(getline(queryText, group, ',')) {
             this->message.group = group;
-//            std::cout << group << "  here group " << std::endl;
             if (getline(queryText, name, ',')){
                 this->message.name = name;
-//                std::cout << name << "  here name " << std::endl;
             }
         }
     }
@@ -94,17 +89,10 @@ void queryData::loadData(std::istream & queryText) {
     std::string rest;
 
     getline(queryText, rest);
-//    std::cout << rest.find_first_of('#') << std::endl;
     if((rest.find('#') != std::string::npos && (!rest.find_first_of('#')))){
-//        std::cout << rest << std::endl;
         std::istringstream restStream;
         restStream.str(rest);
         restStream >> this->message.command;
-        //    std::cout << this->message.command << "  here command " << std::endl;
-//        char ch = '\0';
-//        while(ch == ' '){
-//            restStream.get(ch);
-//        }
         if(this->message.command == "#course" ||
             this->message.command == "#instructor"||
             this->message.command == "#help"||
@@ -116,9 +104,6 @@ void queryData::loadData(std::istream & queryText) {
             getline(restStream, arg);
             this->message.commandArg = arg;
         }
-//        getline(restStream, arg);
-//        this->message.commandArg = arg;
-        //    std::cout << this->message.commandArg << "  here commandArg " << std::endl;
     }
     else{
         std::istringstream restStream;
@@ -197,15 +182,12 @@ void groupData::loadDetailedAdmin() {
         int numAdmin;
         numAdminThisGroupNum >> numAdmin;
 
-//        std::cout << numAdmin << " is the number correct" << std::endl;
-
         this->group[i].numOfAdmin = numAdmin;
         this->group[i].adminList = group->admin(numAdmin);
 
         for(int j = 0; j < this->group[i].numOfAdmin; j ++){
             std::string name;
             getline(admNameRead, name);
-//            std::cout << name << " is the name correct" << std::endl;
             this->group[i].adminList[j].name = name;
         }
 
