@@ -184,7 +184,7 @@ void groupData::loadData(std::ifstream &fileList) {
     //EFFECTS: load the groupdata from file to groupData structure
     //MODIFIES: groupData
     int counter = 0;
-    //TODO: what is the loaded file has more lines than indicated
+    //TODO: what if the loaded file has more lines than indicated
     while(fileList && counter < numOfGroup) {
         if (fileList) {
             std::string line;
