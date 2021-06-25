@@ -34,8 +34,15 @@ Root QuadraticFunction::getRoot() {
     Root root;
     float delta = pow(b, 2) - 4 * a * c;
     if(delta > 0){
-        root.roots[0].real = (-1 * b - sqrt(delta))/ (2 * a);
-        root.roots[1].real = (-1 * b + sqrt(delta)) / (2 * a);
+        if(a > 0){
+            root.roots[0].real = (-1 * b - sqrt(delta)) / (2 * a);
+            root.roots[1].real = (-1 * b + sqrt(delta)) / (2 * a);
+        }
+        else{
+            root.roots[0].real = (-1 * b + sqrt(delta)) / (2 * a);
+            root.roots[1].real = (-1 * b - sqrt(delta)) / (2 * a);
+        }
+
         root.roots[0].imaginary = 0;
         root.roots[1].imaginary = 0;
         root.realRootNum = 2;

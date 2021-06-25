@@ -21,8 +21,15 @@ QuadraticFunction::QuadraticFunction(float a_in, float b_in, float c_in){
     r2.real = 0;
     r2.imaginary = 0;
     if(delta > 0){
-        root.roots[0].real = (-1 * b1 - sqrt(delta)) / (2 * a1);
-        root.roots[1].real = (-1 * b1 + sqrt(delta)) / (2 * a1);
+        if(a > 0){
+            root.roots[0].real = (-1 * b1 - sqrt(delta)) / (2 * a1);
+            root.roots[1].real = (-1 * b1 + sqrt(delta)) / (2 * a1);
+        }
+        else{
+            root.roots[0].real = (-1 * b1 + sqrt(delta)) / (2 * a1);
+            root.roots[1].real = (-1 * b1 - sqrt(delta)) / (2 * a1);
+        }
+
         root.roots[0].imaginary = 0;
         root.roots[1].imaginary = 0;
         root.realRootNum = 2;
