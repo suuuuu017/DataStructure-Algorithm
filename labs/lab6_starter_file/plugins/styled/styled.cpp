@@ -22,6 +22,7 @@ public:
     }
 
     string toString() const override {
+        //TODO: how to concat \n
         string output = "Second Lobster writes styled because he thinks it is fun";
         return output;
     }
