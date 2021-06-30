@@ -18,14 +18,11 @@ public:
     }
 
     string response(const string &str) const override {
-        return "You are not playing warcraft 3, guys...";
+        return "You are not playing Warcraft 3, guys...";
     }
 
     string toString() const override {
-        string output = "Name: " + this->name + "\n"
-                        + "Author: " + this->author + "\n"
-                        + "Description: " + this->description + "\n"
-                        + "Help: " + this->help;
+        string output = "Second Lobster writes styled because he thinks it is fun";
         return output;
     }
 };
