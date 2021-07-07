@@ -29,6 +29,11 @@ class TooManyTasks : public std::exception {
 class Course {
 public:
     // TODO: declare the methods and the destructor here
+    virtual void updateTask(const std::string &type, int index, int dueMonth, int dueDay) = 0;
+    virtual void finishTask(const std::string &type, int index, int finishMonth, int finishDay) = 0;
+    virtual void print() = 0;
+    //how to declare this destructor
+    virtual ~Course(){};
 };
 
 Course *create(const std::string &classType, const std::string &courseCode, const int &size);
@@ -50,11 +55,17 @@ protected:
     std::string courseCode;
 public:
     // TODO: implement the constructor
-    TechnicalCourse(std::string courseCode, int size = MAX_TASKS);
+    TechnicalCourse(std::string courseCode, int size = MAX_TASKS):
+        tasks(new Task[size]), sizeTasks(size), numTasks(0),courseCode(courseCode){
+    }
 
     // TODO: declare and implement the destructor
+    ~TechnicalCourse(){
+        delete [] tasks;
+    };
 
     // TODO: declare updateTask method
+    void updateTask(const std::string &type, int index, int dueMonth, int dueDay);
 
     void finishTask(const std::string &type, int index, int finishMonth, int finishDay);
 
@@ -64,9 +75,13 @@ public:
 class UpperLevelTechnicalCourse : public TechnicalCourse {
 public:
     // TODO: implement the constructor
-    UpperLevelTechnicalCourse(const std::string &courseCode, int size = MAX_TASKS);
+    UpperLevelTechnicalCourse(const std::string &courseCode, int size = MAX_TASKS):
+        TechnicalCourse(courseCode, size){
+    };
 
     // TODO: declare and implement the destructor
+    ~UpperLevelTechnicalCourse(){
+    };
 
     void updateTask(const std::string &type, int index, int dueMonth, int dueDay);
 };

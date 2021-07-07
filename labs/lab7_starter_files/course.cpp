@@ -15,6 +15,36 @@ void TechnicalCourse::updateTask(const std::string &type, int index, int dueMont
 //          throw an exception if tasks is full
 {
     // TODO: implement this function
+    bool found = false;
+    if(numTasks < sizeTasks){
+        for(int i = 0; i < numTasks; i++){
+            if(type == tasks[i].type && index == tasks[i].index){
+                found = true;
+                tasks[i].dueMonth = dueMonth;
+                tasks[i].dueDay = dueDay;
+                break;
+            }
+        }
+    }
+    if((found == false) && numTasks < sizeTasks){
+        tasks[numTasks].type = type;
+        tasks[numTasks].index = index;
+        tasks[numTasks].dueMonth = dueMonth;
+        tasks[numTasks].dueDay = dueDay;
+        numTasks = numTasks + 1;
+        if(type == "Lab" || type == "Project"){
+            std::cout << courseCode << " " << type << " " << index <<
+                " is released! Submit it via oj!" << std::endl;
+        }
+        else{
+            std::cout << courseCode << " " << type << " " << index <<
+                      " is released! Submit it via canvas!" << std::endl;
+        }
+    }
+    else if((!found) && numTasks >= sizeTasks){
+        TooManyTasks tmt;
+        throw tmt;
+    }
 }
 
 void TechnicalCourse::finishTask(const std::string &type, int index, int finishMonth, int finishDay)
@@ -23,6 +53,47 @@ void TechnicalCourse::finishTask(const std::string &type, int index, int finishM
 // EFFECTS: removes Task index of type
 {
     // TODO: implement this function
+    bool overdue = false;
+    int victim = 0;
+    bool found = false;
+    if(numTasks < sizeTasks && numTasks > 0){
+        for(int i = 0; i < numTasks; i++){
+            if(type == tasks[i].type && index == tasks[i].index){
+                found = true;
+                victim = i;
+                break;
+            }
+        }
+    }
+    if(found){
+        if(tasks[victim].dueMonth < finishMonth){
+            overdue = true;
+        }
+        else if(tasks[victim].dueMonth == finishMonth){
+            if(tasks[victim].dueDay < finishDay){
+                overdue = true;
+            }
+            else{
+                overdue = false;
+            }
+        }
+        else if(tasks[victim].dueMonth > finishMonth){
+            overdue = false;
+        }
+    }
+    numTasks = numTasks - 1;
+    for(int i = victim; i < numTasks; i++){
+        tasks[i] = tasks[i+1];
+    }
+    if(found && overdue){
+        std::cout << courseCode << " " << type << " " << index << " is overdue!" << std::endl;
+    }
+    else if(found && (!overdue)){
+        std::cout << courseCode << " " << type << " " << index << " is finished!" << std::endl;
+    }
+    if(!found){
+        return;
+    }
 }
 
 void TechnicalCourse::print() {
