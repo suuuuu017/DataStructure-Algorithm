@@ -156,7 +156,7 @@ void UpperLevelTechnicalCourse::updateTask(const std::string &type, int index, i
                 tasks[j] = tasks[j + 1];
                 tasks[j + 1] = tmp;
             }
-            else if(tasks[j].dueMonth == tasks[j+1].dueMonth && tasks[j].dueDay > tasks[j+1].dueDay){
+            else if(tasks[j].dueMonth == tasks[j+1].dueMonth && tasks[j].dueDay >= tasks[j+1].dueDay){
                 Task tmp;
                 tmp = tasks[j];
                 tasks[j] = tasks[j + 1];
