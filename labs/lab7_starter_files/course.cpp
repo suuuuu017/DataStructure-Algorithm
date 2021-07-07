@@ -26,7 +26,7 @@ void TechnicalCourse::updateTask(const std::string &type, int index, int dueMont
             }
         }
     }
-    if((found == false) && numTasks < sizeTasks){
+    if((!found) && numTasks < sizeTasks){
         tasks[numTasks].type = type;
         tasks[numTasks].index = index;
         tasks[numTasks].dueMonth = dueMonth;
@@ -114,6 +114,54 @@ void UpperLevelTechnicalCourse::updateTask(const std::string &type, int index, i
 //          do nothing if its dueMonth/dueDay is unchanged.
 {
     // TODO: implement this function
+    bool found = false;
+    if(numTasks < sizeTasks){
+        for(int i = 0; i < numTasks; i++){
+            if(type == tasks[i].type && index == tasks[i].index){
+                found = true;
+                tasks[i].dueMonth = dueMonth;
+                tasks[i].dueDay = dueDay;
+                break;
+            }
+        }
+    }
+    if((!found) && numTasks < sizeTasks){
+        tasks[numTasks].type = type;
+        tasks[numTasks].index = index;
+        tasks[numTasks].dueMonth = dueMonth;
+        tasks[numTasks].dueDay = dueDay;
+        numTasks = numTasks + 1;
+        if(type == "Lab" || type == "Project"){
+            std::cout << courseCode << " " << type << " " << index <<
+                      " is released! Submit it via oj!" << std::endl;
+        }
+        else if(type == "Team Project"){
+            std::cout << courseCode << " " << type << " " << index <<
+                      " is released! Submit it via github!" << std::endl;
+        }
+        else{
+            std::cout << courseCode << " " << type << " " << index <<
+                      " is released! Submit it via canvas!" << std::endl;
+        }
+    }
+    else if((!found) && numTasks >= sizeTasks){
+        TooManyTasks tmt;
+        throw tmt;
+    }
+    for(int i = 0; i < numTasks - 1; i++){
+        if(tasks[i].dueMonth > tasks[i+1].dueMonth){
+            Task tmp;
+            tmp = tasks[i];
+            tasks[i] = tasks[i + 1];
+            tasks[i + 1] = tmp;
+        }
+        else if(tasks[i].dueMonth == tasks[i+1].dueMonth && tasks[i].dueDay > tasks[i+1].dueDay){
+            Task tmp;
+            tmp = tasks[i];
+            tasks[i] = tasks[i + 1];
+            tasks[i + 1] = tmp;
+        }
+    }
 }
 
 Course *create(const std::string &classType, const std::string &courseCode) {
