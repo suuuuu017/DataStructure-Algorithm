@@ -149,17 +149,19 @@ void UpperLevelTechnicalCourse::updateTask(const std::string &type, int index, i
         throw tmt;
     }
     for(int i = 0; i < numTasks - 1; i++){
-        if(tasks[i].dueMonth > tasks[i+1].dueMonth){
-            Task tmp;
-            tmp = tasks[i];
-            tasks[i] = tasks[i + 1];
-            tasks[i + 1] = tmp;
-        }
-        else if(tasks[i].dueMonth == tasks[i+1].dueMonth && tasks[i].dueDay > tasks[i+1].dueDay){
-            Task tmp;
-            tmp = tasks[i];
-            tasks[i] = tasks[i + 1];
-            tasks[i + 1] = tmp;
+        for(int j = 0; j < numTasks - 1 - i; j++){
+            if(tasks[j].dueMonth > tasks[j+1].dueMonth){
+                Task tmp;
+                tmp = tasks[j];
+                tasks[j] = tasks[j + 1];
+                tasks[j + 1] = tmp;
+            }
+            else if(tasks[j].dueMonth == tasks[j+1].dueMonth && tasks[j].dueDay > tasks[j+1].dueDay){
+                Task tmp;
+                tmp = tasks[j];
+                tasks[j] = tasks[j + 1];
+                tasks[j + 1] = tmp;
+            }
         }
     }
 }
