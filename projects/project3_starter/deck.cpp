@@ -1,17 +1,24 @@
 #include "deck.h"
 
 Deck::Deck() {
-    for(int suit = 0; suit < 4; suit++){
-        for(int spot = 0; spot < 13; spot++){
-            deck[suit * 13 + spot].suit = static_cast<Suit>(suit);
-            deck[suit * 13 + spot].spot = static_cast<Spot>(spot);
+    for(int suit = SPADES; suit <= DIAMONDS; suit++){
+        for(int spot = TWO; spot <= ACE; spot++){
+            deck[suit * 13 + spot].suit = (enum Suit)(suit);
+            deck[suit * 13 + spot].spot = (enum Spot)(spot);
         }
     }
     next = 0;
 }
 
 void Deck::reset() {
-    Deck();
+    //how to reuse the deck() for reset()
+    for(int suit = SPADES; suit <= DIAMONDS; suit++){
+        for(int spot = TWO; spot <= ACE; spot++){
+            deck[suit * 13 + spot].suit = (enum Suit)(suit);
+            deck[suit * 13 + spot].spot = (enum Spot)(spot);
+        }
+    }
+    next = 0;
 }
 
 void Deck::shuffle(int n) {
@@ -24,10 +31,10 @@ void Deck::shuffle(int n) {
     int i = 0;
     while(i < DeckSize){
         if(leftStart <= leftEnd && rightStart <= rightEnd){
-            shuffledDeck[i] = deck[leftStart];
-            shuffledDeck[i + 1] = deck[rightStart];
-            leftStart = leftStart + 1;
+            shuffledDeck[i] = deck[rightStart];
+            shuffledDeck[i + 1] = deck[leftStart];
             rightStart = rightStart + 1;
+            leftStart = leftStart + 1;
             i = i + 2;
         }
         else if(leftStart > leftEnd && rightStart <= rightEnd){
