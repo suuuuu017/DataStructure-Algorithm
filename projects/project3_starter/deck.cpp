@@ -3,8 +3,8 @@
 Deck::Deck() {
     for(int suit = SPADES; suit <= DIAMONDS; suit++){
         for(int spot = TWO; spot <= ACE; spot++){
-            deck[suit * 13 + spot].suit = (enum Suit)(suit);
-            deck[suit * 13 + spot].spot = (enum Spot)(spot);
+            deck[suit * 13 + spot].suit = static_cast<Suit>(suit);
+            deck[suit * 13 + spot].spot = static_cast<Spot>(spot);
         }
     }
     next = 0;
@@ -14,8 +14,8 @@ void Deck::reset() {
     //how to reuse the deck() for reset()
     for(int suit = SPADES; suit <= DIAMONDS; suit++){
         for(int spot = TWO; spot <= ACE; spot++){
-            deck[suit * 13 + spot].suit = (enum Suit)(suit);
-            deck[suit * 13 + spot].spot = (enum Spot)(spot);
+            deck[suit * 13 + spot].suit = static_cast<Suit>(suit);
+            deck[suit * 13 + spot].spot = static_cast<Spot>(spot);
         }
     }
     next = 0;
