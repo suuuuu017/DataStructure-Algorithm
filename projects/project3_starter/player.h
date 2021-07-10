@@ -66,4 +66,6 @@ extern Player* get_Player(string& dealerSide, string& playerType, int& ID);
     // If this argument is "counting", then Itzuki and Avdol are countingplayers. 
     // "ID" is the player's ID.
 
+//extern Player* get_Simple();
+
 #endif /* __PLAYER_H__ */

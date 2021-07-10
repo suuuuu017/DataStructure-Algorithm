@@ -7,7 +7,7 @@ void suf(Deck &d, int n){
 
 int main(){
     Deck d = Deck();
-    suf(d, 10);
+    d.shuffle(10);
     for(int i = 0; i < 52; i ++){
         std::cout << d.deck[i].suit << " " << d.deck[i].spot << std::endl;
     }

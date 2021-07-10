@@ -182,15 +182,19 @@ int main(int argc, char * argv[]){
     Player* dealers[5];
 
     Player* sos[5];
-    for(int i = 0; i < 5; i ++){
+    for(int i = 0; i < 5; i++){
         int ID = i + 1;
-        sos[i] = get_Player((string &) "sc", type, ID);
+//        std::cout << ID << type << std::endl;
+//        sos[i] = get_Simple();
+        string dealerSide = "sc";
+        sos[i] = get_Player(dealerSide, type, ID);
     }
 
     Player* sc[5];
     for(int i = 0; i < 5; i ++){
         int ID = i + 1;
-        sc[i] = get_Player((string &) "sos", type, ID);
+        string dealerSide = "sos";
+        sc[i] = get_Player(dealerSide, type, ID);
     }
 
     Deck deck;

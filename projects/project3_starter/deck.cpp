@@ -3,6 +3,7 @@
 Deck::Deck() {
     for(int suit = SPADES; suit <= DIAMONDS; suit++){
         for(int spot = TWO; spot <= ACE; spot++){
+            //should i use string for the card
             deck[suit * 13 + spot].suit = static_cast<Suit>(suit);
             deck[suit * 13 + spot].spot = static_cast<Spot>(spot);
         }

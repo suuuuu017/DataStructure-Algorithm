@@ -1,4 +1,5 @@
 #include "player.h"
+#include <iostream>
 
 class Simple : public Player{
 public:
@@ -513,9 +514,16 @@ static KJ kj;
 static JPP jpp;
 static KN kn;
 
+//Player *get_Simple(){
+//    return & simple;
+//}
+
 Player* get_Player(string& dealerSide, string& playerType, int& ID){
+//    std::cout << dealerSide << std::endl;
     if(dealerSide == "sc"){
+//        std::cout << "here!" << std::endl;
         if(ID == 1){
+//            std::cout << "here" << std::endl;
             return & sh;
         }
         if(ID == 2){
@@ -535,6 +543,7 @@ Player* get_Player(string& dealerSide, string& playerType, int& ID){
         }
     }
     else if(dealerSide == "sos"){
+//        std::cout << "here!" << std::endl;
         if(ID == 1){
             return & jj;
         }
@@ -555,4 +564,27 @@ Player* get_Player(string& dealerSide, string& playerType, int& ID){
         }
     }
     return nullptr;
+}
+
+string Player::getName() {
+    return name;
+}
+
+int Player::getID() {
+    return ID;
+}
+
+Team Player::getTeam() {
+    return team;
+}
+
+void Player::setPlayer(Team tm, int id) {
+    this->team = tm;
+    this->ID = id;
+    if(tm == SOSBrigade){
+        this->name = SOS_Name[id - 1];
+    }
+    else if(tm == StardustCrusaders){
+        this->name = SC_Name[id - 1];
+    }
 }

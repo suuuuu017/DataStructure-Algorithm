@@ -14,6 +14,7 @@ void Hand::addCard(Card c) {
     if(c.spot == ACE && curValue.soft){
         curValue.count = curValue.count + 1;
     }
+    //TODO: check if the logic is correct
     else if(c.spot == ACE && (!curValue.soft)){
         curValue.count = curValue.count + 11;
         curValue.soft = true;
