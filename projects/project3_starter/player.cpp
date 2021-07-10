@@ -522,44 +522,58 @@ Player* get_Player(string& dealerSide, string& playerType, int& ID){
 //    std::cout << dealerSide << std::endl;
     if(dealerSide == "sc"){
 //        std::cout << "here!" << std::endl;
+        Team playerTeam = SOSBrigade;
         if(ID == 1){
 //            std::cout << "here" << std::endl;
+            sh.setPlayer(playerTeam, 1);
             return & sh;
         }
         if(ID == 2){
+            ny.setPlayer(playerTeam, 2);
             return & ny;
         }
         if(ID == 3){
+            am.setPlayer(playerTeam, 3);
             return & am;
         }
         if(ID == 4){
+            k.setPlayer(playerTeam, 4);
             return & k;
         }
         if(ID == 5 && playerType == "simple"){
+            simple.setPlayer(playerTeam, 5);
             return & simple;
         }
         if(ID == 5 && playerType == "counting"){
+            counting.setPlayer(playerTeam, 5);
             return & counting;
         }
     }
     else if(dealerSide == "sos"){
 //        std::cout << "here!" << std::endl;
+        Team playerTeam = StardustCrusaders;
         if(ID == 1){
+            jj.setPlayer(playerTeam, 1);
             return & jj;
         }
         if(ID == 2){
+            kj.setPlayer(playerTeam, 2);
             return & kj;
         }
         if(ID == 3){
+            jpp.setPlayer(playerTeam, 3);
             return & jpp;
         }
         if(ID == 4){
+            kn.setPlayer(playerTeam, 4);
             return & kn;
         }
         if(ID == 5 && playerType == "simple"){
+            simple.setPlayer(playerTeam, 5);
             return & simple;
         }
         if(ID == 5 && playerType == "counting"){
+            counting.setPlayer(playerTeam, 5);
             return & counting;
         }
     }

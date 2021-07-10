@@ -19,13 +19,13 @@ void shuffle(Deck deck, Player * player){
 }
 
 Card deal(Hand & handP, Hand & handD, int i, Player* player, Player* dealer, Card & c){
-    if(i == 0 || i == 2 || i > 3){
+    if(i == 0 || i == 2){
         handP.addCard(c);
         player->expose(c);
         std::cout << "Player: " << player->getName() << " dealt "
                   << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
     }
-    else if(i == 1 || i > 3){
+    else if(i == 1){
         handD.addCard(c);
         player->expose(c);
         std::cout << "Dealer: " << dealer->getName() << " dealt "
@@ -35,6 +35,19 @@ Card deal(Hand & handP, Hand & handD, int i, Player* player, Player* dealer, Car
         handD.addCard(c);
     }
     return c;
+}
+
+void playerHit(Hand & handP, Player* player, Card & c){
+    handP.addCard(c);
+    player->expose(c);
+    std::cout << "Player: " << player->getName() << " dealt "
+              << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
+}
+
+void dealerHit(Hand & handD, Player* dealer, Card & c){
+    handD.addCard(c);
+    std::cout << "Dealer: " << dealer->getName() << " dealt "
+              << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
 }
 
 bool checkDeck(Deck deck){
@@ -101,15 +114,16 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
 
         int cardNum = 4;
         while(handP.handValue().count < 21 && player->draw(dealerUp, handP)){
+            std::cout << handP.handValue().count << std::endl;
             c = deck.deal();
             if(checkDeck(deck)){
                 shuffle(deck, player);
                 continue;
             }
-            deal(handP, handD, cardNum, player, dealer, c);
+            playerHit(handP, player, c);
             cardNum = cardNum + 1;
         }
-
+        std::cout << handP.handValue().count << std::endl;
         std::cout << "Player: " << player->getName() << "'s total is "
                   << handP.handValue().count << std::endl;
 
@@ -120,7 +134,7 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
             //TODO: how to continue to next player
         }
         else{
-            std::cout << "Dealer: " << dealer->getName() << "'s hole card is"
+            std::cout << "Dealer: " << dealer->getName() << "'s hole card is "
                       << SuitNames[dealerDown.suit] << " of "
                       << SpotNames[dealerDown.spot] << std::endl;
         }
@@ -131,7 +145,7 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
                 shuffle(deck, player);
                 continue;
             }
-            deal(handP, handD, cardNum, player, dealer, c);
+            dealerHit(handD, dealer, c);
         }
         std::cout << "Dealer: " << dealer->getName() << "'s total is "
                   << handD.handValue().count << std::endl;
