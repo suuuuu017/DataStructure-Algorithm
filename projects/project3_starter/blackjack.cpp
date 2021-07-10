@@ -8,7 +8,7 @@
 #include "deck.h"
 #include "rand.h"
 
-void shuffle(Deck deck, Player * player){
+void shuffle(Deck & deck, Player * player){
     std::cout << "Shuffling the deck" << std::endl;
     for(int i = 0; i < 7; i++){
         int cut = get_cut();
@@ -23,13 +23,13 @@ Card deal(Hand & handP, Hand & handD, int i, Player* player, Player* dealer, Car
         handP.addCard(c);
         player->expose(c);
         std::cout << "Player: " << player->getName() << " dealt "
-                  << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
+                  << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
     }
     else if(i == 1){
         handD.addCard(c);
         player->expose(c);
         std::cout << "Dealer: " << dealer->getName() << " dealt "
-                  << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
+                  << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
     }
     else if(i == 3){
         handD.addCard(c);
@@ -41,13 +41,13 @@ void playerHit(Hand & handP, Player* player, Card & c){
     handP.addCard(c);
     player->expose(c);
     std::cout << "Player: " << player->getName() << " dealt "
-              << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
+              << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
 }
 
 void dealerHit(Hand & handD, Player* dealer, Card & c){
     handD.addCard(c);
     std::cout << "Dealer: " << dealer->getName() << " dealt "
-              << SuitNames[c.suit] << " of " << SpotNames[c.spot] << std::endl;
+              << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
 }
 
 bool checkDeck(Deck deck){
@@ -140,8 +140,8 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         }
         else{
             std::cout << "Dealer: " << dealer->getName() << "'s hole card is "
-                      << SuitNames[dealerDown.suit] << " of "
-                      << SpotNames[dealerDown.spot] << std::endl;
+                      << SpotNames[dealerDown.spot] << " of "
+                      << SuitNames[dealerDown.suit] << std::endl;
         }
 
         while(handD.handValue().count < 17){
@@ -185,7 +185,7 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         thishand = thishand + 1;
     }
 
-    if(team == "sos" && p == 0 && bankroll > minBet){
+    if(team == "sos" && p == 0 && bankroll >= minBet){
         jjWin = true;
     }
 
@@ -254,6 +254,9 @@ int main(int argc, char * argv[]){
         //TODO: what to do it push
         play(player, dealer, minBet, newBankroll, team, p, deck, hands, playerWin, dealerWin, jjWin);
         if(newBankroll < minBet || (player->getName() == SC_Name[0] && !jjWin)){
+            if(dealer->getName() == SC_Name[0]){
+                std::cout << "Nice!" << std::endl;
+            }
             p = p + 1;
         }
         else if(newBankroll >= minBet){
@@ -265,8 +268,8 @@ int main(int argc, char * argv[]){
             }
             d = d + 1;
         }
-        std::cout << p << " " << d << std::endl;
-        std::cout << " the p and d are" << std::endl;
+//        std::cout << p << " " << d << std::endl;
+//        std::cout << " the p and d are" << std::endl;
 
     }
 
