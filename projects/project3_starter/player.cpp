@@ -325,7 +325,11 @@ class JJ : public Counting{
 private:
     int count = 0;
 public:
-    int bet(unsigned int bankroll, int normalBankroll, unsigned int minimum);
+//    int bet(unsigned int bankroll, int normalBankroll, unsigned int minimum);
+    int bet(unsigned int bankroll, unsigned int minimum){
+        return Counting::bet(bankroll, minimum);
+    }
+
     bool draw(Card dealer, const Hand& player) {
         return Counting::draw(dealer, player);
     }
@@ -354,14 +358,14 @@ public:
 
 };
 
-int JJ::bet(unsigned int bankroll, int normalBankroll, unsigned int minimum) {
-    if(count >= 2 && bankroll >= normalBankroll * 0.5){
-        return 2 * int(minimum);
-    }
-    else{
-        return int(minimum);
-    }
-}
+//int JJ::bet(unsigned int bankroll, int normalBankroll, unsigned int minimum) {
+//    if(count >= 2 && bankroll >= normalBankroll * 0.5){
+//        return 2 * int(minimum);
+//    }
+//    else{
+//        return int(minimum);
+//    }
+//}
 
 void JJ::setPlayer(Team tm, int id) {
     this->team = StardustCrusaders;
