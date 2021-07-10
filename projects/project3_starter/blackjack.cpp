@@ -50,6 +50,36 @@ void dealerHit(Hand & handD, Player* dealer, Card & c){
               << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
 }
 
+Card lastcard{};
+Hand kjPower(Hand & hand, int cardNum, Deck deck){
+    hand.discardAll();
+    for(int i = 0; i < cardNum; i++){
+        Card c = deck.deal();
+        hand.addCard(c);
+        if(hand.handValue().count > 21){
+            hand = kjPower(hand, i, deck);
+        }
+        lastcard = c;
+    }
+    return hand;
+}
+
+Card kjHit(Hand & hand, int cardNum, Player * player, Card dealerUp, Deck & deck){
+    int num = cardNum;
+    while(hand.handValue().count < 21 && player->draw(dealerUp, hand)){
+        Card c = deck.deal();
+        hand.addCard(c);
+        player->expose(c);
+        num = num + 1;
+        lastcard = c;
+    }
+    if(hand.handValue().count > 21){
+        std::cout << "Star Platinum, Za Warudo" << std::endl;
+        kjPower(hand, num, deck);
+    }
+    return lastcard;
+}
+
 bool checkDeck(Deck deck){
     if(deck.cardsLeft() == 0){
         return true;
@@ -117,7 +147,7 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
             continue;
         }
 
-        int cardNum = 4;
+        int cardNum = 2;
         while(handP.handValue().count < 21 && player->draw(dealerUp, handP)){
             std::cout << handP.handValue().count << std::endl;
             c = deck.deal();
