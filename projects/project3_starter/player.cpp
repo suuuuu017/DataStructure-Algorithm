@@ -503,8 +503,10 @@ void KN::setPlayer(Team tm, int id) {
     this->name = SC_Name[3];
 }
 
-static Simple simple;
-static Counting counting;
+static Simple simpleSOS;
+static Simple simpleSC;
+static Counting countingSOS;
+static Counting countingSC;
 static SH sh;
 static NY ny;
 static AM am;
@@ -541,12 +543,13 @@ Player* get_Player(string& dealerSide, string& playerType, int& ID){
             return & k;
         }
         if(ID == 5 && playerType == "simple"){
-            simple.setPlayer(playerTeam, 5);
-            return & simple;
+            std::cout << "here sos" << std::endl;
+            simpleSOS.setPlayer(playerTeam, 5);
+            return & simpleSOS;
         }
         if(ID == 5 && playerType == "counting"){
-            counting.setPlayer(playerTeam, 5);
-            return & counting;
+            countingSOS.setPlayer(playerTeam, 5);
+            return & countingSOS;
         }
     }
     else if(dealerSide == "sos"){
@@ -569,12 +572,13 @@ Player* get_Player(string& dealerSide, string& playerType, int& ID){
             return & kn;
         }
         if(ID == 5 && playerType == "simple"){
-            simple.setPlayer(playerTeam, 5);
-            return & simple;
+            std::cout << "here sc" << std::endl;
+            simpleSC.setPlayer(playerTeam, 5);
+            return & simpleSC;
         }
         if(ID == 5 && playerType == "counting"){
-            counting.setPlayer(playerTeam, 5);
-            return & counting;
+            countingSC.setPlayer(playerTeam, 5);
+            return & countingSC;
         }
     }
     return nullptr;
@@ -596,9 +600,11 @@ void Player::setPlayer(Team tm, int id) {
     this->team = tm;
     this->ID = id;
     if(tm == SOSBrigade){
+
         this->name = SOS_Name[id - 1];
     }
     else if(tm == StardustCrusaders){
+
         this->name = SC_Name[id - 1];
     }
 }

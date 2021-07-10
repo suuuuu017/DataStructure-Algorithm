@@ -57,24 +57,27 @@ bool checkDeck(Deck deck){
     return false;
 }
 
-void play(Player * player, Player * dealer, int minBet, int bankroll,
+void play(Player * player, Player * dealer, int minBet, int & bankroll,
             const string& team, int p, Deck deck, int hands,
-            bool & playerWin, bool & dealerWin){
-    int thisBankroll = bankroll;
+            bool & playerWin, bool & dealerWin, bool & jjWin){
+
+    double threshold = bankroll * 0.5;
     if(team == "sos" && p == 0){
-        thisBankroll = 2 * bankroll;
+        bankroll = 2 * bankroll;
     }
 
     shuffle(deck, player);
     int thishand = 1;
 
-    while(thisBankroll >= minBet && thishand <= hands){
+    while(bankroll >= minBet && thishand <= hands){
+        playerWin = false;
+        dealerWin = false;
         std::cout << "Hand " << thishand << " bankroll " << bankroll << std::endl;
         if(deck.cardsLeft() < 20){
             shuffle(deck, player);
         }
 
-        int wager = player->bet(thisBankroll, minBet);
+        int wager = player->bet(bankroll, minBet);
         cout << "Player: " << player->getName() << " bets " << wager << endl;
 
         Hand handD;
@@ -108,8 +111,10 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
         if(handP.handValue().count == 21){
             std::cout << "Player: " << player->getName() << " dealt natural 21" << std::endl;
             //TODO: how to deal with this int double convertion
-            thisBankroll = thisBankroll + wager * 1.5;
+            bankroll = bankroll + wager * 1.5;
             playerWin = true;
+            //TODO: check if the natural the wager would not be added twice
+            continue;
         }
 
         int cardNum = 4;
@@ -129,7 +134,7 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
 
         if(handP.handValue().count > 21){
             std::cout << "Player: " << player->getName() << " busts" << std::endl;
-            thisBankroll = thisBankroll - wager;
+//            bankroll = bankroll - wager;
             dealerWin = true;
             //TODO: how to continue to next player
         }
@@ -151,17 +156,17 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
                   << handD.handValue().count << std::endl;
         if(handD.handValue().count > 21){
             std::cout << "Dealer: " << player->getName() << " busts" << std::endl;
-            thisBankroll = thisBankroll + wager;
+//            bankroll = bankroll + wager;
             playerWin = true;
             //TODO: how to continue to next dealer
         }
 
-        if(handD.handValue().count > handP.handValue().count){
+        if((handD.handValue().count > handP.handValue().count && handD.handValue().count <= 21) || dealerWin){
             std::cout << "Dealer: " << dealer->getName() << " wins this hand" << std::endl;
             bankroll = bankroll - wager;
             dealerWin = true;
         }
-        else if(handD.handValue().count < handP.handValue().count){
+        else if((handD.handValue().count < handP.handValue().count && handP.handValue().count <= 21) || playerWin){
             std::cout << "Player: " << player->getName() << " wins this hand" << std::endl;
             bankroll = bankroll + wager;
             playerWin = true;
@@ -169,16 +174,22 @@ void play(Player * player, Player * dealer, int minBet, int bankroll,
         else{
             std::cout << "Push" << endl;
         }
-
+        if(team == "sos" && p == 0){
+            //TODO: check this escape
+            if(bankroll < threshold){
+                std::cout << "Ni Ge Run Da Yo" << std::endl;
+                jjWin = false;
+                return;
+            }
+        }
         thishand = thishand + 1;
     }
 
-    if(thisBankroll < minBet){
-        dealerWin = true;
-        return;
+    if(team == "sos" && p == 0 && bankroll > minBet){
+        jjWin = true;
     }
-    else if(thisBankroll >= minBet){
-        playerWin = true;
+
+    if(bankroll < minBet){
         return;
     }
 }
@@ -233,20 +244,30 @@ int main(int argc, char * argv[]){
 
     bool playerWin = false;
     bool dealerWin = false;
+    bool jjWin = false;
 
     while(p < 5 && d < 5){
-        if(dealerWin){
-            p = p + 1;
-            dealerWin = false;
-        }
-        if(playerWin){
-            d = d + 1;
-            playerWin = false;
-        }
+        int newBankroll = bankroll;
+//        std ::cout << "bankRoll " << bankroll << std::endl;
         player = players[p];
         dealer = dealers[d];
         //TODO: what to do it push
-        play(player, dealer, minBet, bankroll, team, p, deck, hands, playerWin, dealerWin);
+        play(player, dealer, minBet, newBankroll, team, p, deck, hands, playerWin, dealerWin, jjWin);
+        if(newBankroll < minBet || (player->getName() == SC_Name[0] && !jjWin)){
+            p = p + 1;
+        }
+        else if(newBankroll >= minBet){
+            if(player->getName() == SC_Name[0] && jjWin){
+                std::cout << "Nice!" << std::endl;
+            }
+            if(player->getName() == SC_Name[4]){
+                std::cout << "rerorerorero rerorerorero" << std::endl;
+            }
+            d = d + 1;
+        }
+        std::cout << p << " " << d << std::endl;
+        std::cout << " the p and d are" << std::endl;
+
     }
 
 
