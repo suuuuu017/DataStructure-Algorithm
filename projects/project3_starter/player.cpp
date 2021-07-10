@@ -1,6 +1,6 @@
 #include "player.h"
 
-class Simple : protected Player{
+class Simple : public Player{
 public:
     int bet(unsigned int bankroll, unsigned int minimum);
     bool draw(Card dealer, const Hand& player);
@@ -82,16 +82,16 @@ void Simple::setPlayer(Team tm, int id) {
     this->team = tm;
     this->ID = id;
     if(tm == SOSBrigade){
-        this->name = SOS_Name[id];
+        this->name = SOS_Name[id - 1];
     }
     else if(tm == StardustCrusaders){
-        this->name = SC_Name[id];
+        this->name = SC_Name[id - 1];
     }
 }
 
 //TODO implement the get_Player for simple player
 
-class Counting : protected Simple{
+class Counting : public Simple{
 private:
     int count = 0;
 public:
@@ -149,3 +149,406 @@ void Counting::setPlayer(Team tm, int id) {
 
 //TODO implement the get_Player for counting player
 
+
+//SOS class
+
+class SH: public Simple{
+public:
+    int bet(unsigned int bankroll, unsigned int minimum);
+    bool draw(Card dealer, const Hand& player) {
+        return Simple::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Simple::expose(c);
+    }
+
+    void shuffled() {
+        Simple::shuffled();
+    }
+
+    string getName() {
+        return Simple::getName();
+    }
+
+    int getID() {
+        return Simple::getID();
+    }
+
+    Team getTeam() {
+        return Simple::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+int SH::bet(unsigned int bankroll, unsigned int minimum) {
+    return (2 * int(minimum));
+}
+
+void SH::setPlayer(Team tm, int id) {
+    this->team = SOSBrigade;
+    this->ID = 1;
+    this->name = SOS_Name[0];
+}
+
+class NY : public Counting{
+private:
+    int count = 0;
+public:
+    int bet(unsigned int bankroll, unsigned int minimum) {
+        return Counting::bet(bankroll, minimum);
+    }
+
+    bool draw(Card dealer, const Hand& player) {
+        return Counting::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Counting::expose(c);
+    }
+
+    void shuffled() {
+        Counting::shuffled();
+    }
+
+    string getName() {
+        return Counting::getName();
+    }
+
+    int getID() {
+        return Counting::getID();
+    }
+
+    Team getTeam() {
+        return Counting::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+void NY::setPlayer(Team tm, int id) {
+    this->team = SOSBrigade;
+    this->ID = 2;
+    this->name = SOS_Name[1];
+}
+
+class AM : public Counting{
+private:
+    int count = 0;
+public:
+    int bet(unsigned int bankroll, unsigned int minimum);
+    bool draw(Card dealer, const Hand& player) {
+        return Counting::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Counting::expose(c);
+    }
+
+    void shuffled() {
+        Counting::shuffled();
+    }
+
+    string getName() {
+        return Counting::getName();
+    }
+
+    int getID() {
+        return Counting::getID();
+    }
+
+    Team getTeam() {
+        return Counting::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+int AM::bet(unsigned int bankroll, unsigned int minimum) {
+    if(count <= -2 && bankroll >= minimum * 2){
+        return 2 * int(minimum);
+    }
+    else{
+        return int(minimum);
+    }
+}
+
+void AM::setPlayer(Team tm, int id) {
+    this->team = SOSBrigade;
+    this->ID = 3;
+    this->name = SOS_Name[2];
+}
+
+class K : public Simple{
+public:
+    int bet(unsigned int bankroll, unsigned int minimum) {
+        return Simple::bet(bankroll, minimum);
+    }
+
+    bool draw(Card dealer, const Hand& player) {
+        return Simple::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Simple::expose(c);
+    }
+
+    void shuffled() {
+        Simple::shuffled();
+    }
+
+    string getName() {
+        return Simple::getName();
+    }
+
+    int getID() {
+        return Simple::getID();
+    }
+
+    Team getTeam() {
+        return Simple::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+void K::setPlayer(Team tm, int id) {
+    this->team = SOSBrigade;
+    this->ID = 4;
+    this->name = SOS_Name[3];
+}
+
+//SC class
+
+class JJ : public Counting{
+private:
+    int count = 0;
+public:
+    int bet(unsigned int bankroll, int normalBankroll, unsigned int minimum);
+    bool draw(Card dealer, const Hand& player) {
+        return Counting::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Counting::expose(c);
+    }
+
+    void shuffled() {
+        Counting::shuffled();
+    }
+
+    string getName() {
+        return Counting::getName();
+    }
+
+    int getID() {
+        return Counting::getID();
+    }
+
+    Team getTeam() {
+        return Counting::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+
+};
+
+int JJ::bet(unsigned int bankroll, int normalBankroll, unsigned int minimum) {
+    if(count >= 2 && bankroll >= normalBankroll * 0.5){
+        return 2 * int(minimum);
+    }
+    else{
+        return int(minimum);
+    }
+}
+
+void JJ::setPlayer(Team tm, int id) {
+    this->team = StardustCrusaders;
+    this->ID = 1;
+    this->name = SC_Name[0];
+}
+
+class KJ : public Counting{
+private:
+    int count = 0;
+public:
+    int bet(unsigned int bankroll, unsigned int minimum) {
+        return Counting::bet(bankroll, minimum);
+    }
+
+    bool draw(Card dealer, const Hand& player) {
+        return Counting::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Counting::expose(c);
+    }
+
+    void shuffled() {
+        Counting::shuffled();
+    }
+
+    string getName() {
+        return Counting::getName();
+    }
+
+    int getID() {
+        return Counting::getID();
+    }
+
+    Team getTeam() {
+        return Counting::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+
+};
+
+void KJ::setPlayer(Team tm, int id) {
+    this->team = StardustCrusaders;
+    this->ID = 2;
+    this->name = SC_Name[1];
+}
+
+class JPP : public Simple{
+public:
+    int bet(unsigned int bankroll, unsigned int minimum) {
+        return Simple::bet(bankroll, minimum);
+    }
+
+    bool draw(Card dealer, const Hand& player) {
+        return Simple::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Simple::expose(c);
+    }
+
+    void shuffled() {
+        Simple::shuffled();
+    }
+
+    string getName() {
+        return Simple::getName();
+    }
+
+    int getID() {
+        return Simple::getID();
+    }
+
+    Team getTeam() {
+        return Simple::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+void JPP::setPlayer(Team tm, int id) {
+    this->team = StardustCrusaders;
+    this->ID = 3;
+    this->name = SC_Name[2];
+}
+
+class KN : public Counting{
+private:
+    int count = 0;
+public:
+    int bet(unsigned int bankroll, unsigned int minimum);
+
+    bool draw(Card dealer, const Hand& player) {
+        return Counting::draw(dealer, player);
+    }
+
+    void expose(Card c) {
+        Counting::expose(c);
+    }
+
+    void shuffled() {
+        Counting::shuffled();
+    }
+
+    string getName() {
+        return Counting::getName();
+    }
+
+    int getID() {
+        return Counting::getID();
+    }
+
+    Team getTeam() {
+        return Counting::getTeam();
+    }
+
+    void setPlayer(Team tm, int id);
+};
+
+int KN::bet(unsigned int bankroll, unsigned int minimum) {
+    if(count >= 4 && bankroll >= minimum * 2){
+        return 2 * int(minimum);
+    }
+    else{
+        return int(minimum);
+    }
+}
+
+void KN::setPlayer(Team tm, int id) {
+    this->team = StardustCrusaders;
+    this->ID = 4;
+    this->name = SC_Name[3];
+}
+
+static Simple simple;
+static Counting counting;
+static SH sh;
+static NY ny;
+static AM am;
+static K k;
+static JJ jj;
+static KJ kj;
+static JPP jpp;
+static KN kn;
+
+Player* get_Player(string& dealerSide, string& playerType, int& ID){
+    if(dealerSide == "sc"){
+        if(ID == 1){
+            return & sh;
+        }
+        if(ID == 2){
+            return & ny;
+        }
+        if(ID == 3){
+            return & am;
+        }
+        if(ID == 4){
+            return & k;
+        }
+        if(ID == 5 && playerType == "simple"){
+            return & simple;
+        }
+        if(ID == 5 && playerType == "counting"){
+            return & counting;
+        }
+    }
+    else if(dealerSide == "sos"){
+        if(ID == 1){
+            return & jj;
+        }
+        if(ID == 2){
+            return & kj;
+        }
+        if(ID == 3){
+            return & jpp;
+        }
+        if(ID == 4){
+            return & kn;
+        }
+        if(ID == 5 && playerType == "simple"){
+            return & simple;
+        }
+        if(ID == 5 && playerType == "counting"){
+            return & counting;
+        }
+    }
+    return nullptr;
+}
