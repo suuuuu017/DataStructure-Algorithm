@@ -218,32 +218,29 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
                       << SpotNames[dealerDown.spot] << " of "
                       << SuitNames[dealerDown.suit] << std::endl;
         }
-        if(!dealerWin){
-            if(dealer->getName() != SC_Name[1]){
-                while(handD.handValue().count < 17){
-                    c = deck.deal();
-                    if(checkDeck(deck)){
-                        shuffle(deck, player);
-                        continue;
-                    }
-                    dealerHit(handD, dealer, c);
+
+        if(dealer->getName() != SC_Name[1]){
+            while(handD.handValue().count < 17){
+                c = deck.deal();
+                if(checkDeck(deck)){
+                    shuffle(deck, player);
+                    continue;
                 }
-            }
-            else{
-                Card tmpcard = dealerkjHit(handD, 2, dealer, deck, lastcard);
-                std::cout << "Dealer: " << dealer->getName() << " dealt "
-                          << SpotNames[tmpcard.spot] << " of " << SuitNames[tmpcard.suit] << std::endl;
-            }
-            std::cout << "Dealer: " << dealer->getName() << "'s total is "
-                      << handD.handValue().count << std::endl;
-            if(handD.handValue().count > 21){
-                std::cout << "Dealer: " << dealer->getName() << " busts" << std::endl;
-//            bankroll = bankroll + wager;
-                playerWin = true;
-                //TODO: how to continue to next dealer
+                dealerHit(handD, dealer, c);
             }
         }
+        else{
+            dealerkjHit(handD, 2, dealer, deck, lastcard);
 
+        }
+        std::cout << "Dealer: " << dealer->getName() << "'s total is "
+                  << handD.handValue().count << std::endl;
+        if(handD.handValue().count > 21){
+            std::cout << "Dealer: " << player->getName() << " busts" << std::endl;
+//            bankroll = bankroll + wager;
+            playerWin = true;
+            //TODO: how to continue to next dealer
+        }
 
         if((handD.handValue().count > handP.handValue().count && handD.handValue().count <= 21) || dealerWin){
             std::cout << "Dealer: " << dealer->getName() << " wins this hand" << std::endl;
@@ -287,7 +284,9 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
 
 
 int main(int argc, char * argv[]){
-
+    for(int i = 1; i<= 4; i++){
+        std::cout << argv[i] << std::endl;
+    }
     int bankroll = atoi(argv[1]);
     int hands = atoi(argv[2]);
     std::string type = argv[3];
