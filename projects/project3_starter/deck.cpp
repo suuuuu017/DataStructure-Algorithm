@@ -53,6 +53,7 @@ void Deck::shuffle(int n) {
     for(int j = 0; j < DeckSize; j++){
         deck[j] = shuffledDeck[j];
     }
+    next = 0;
 }
 
 Card Deck::deal() {

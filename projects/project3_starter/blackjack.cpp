@@ -60,60 +60,119 @@ void dealerHit(Hand & handD, Player* dealer, Card & c){
 
 
 
-Hand kjPower(Hand & hand, int cardNum, Deck & deck, Card & lastcard, Player * player){
+Hand kjPower(Hand hand, int cardNum, Deck & deck, Card & lastcard, Player * player){
     hand.discardAll();
     for(int i = 0; i < cardNum; i++){
+//        std::cout << "card Num is " << cardNum << std::endl;
         if(checkDeck(deck)){
             shuffle(deck, player);
             i = i - 1;
             continue;
         }
         Card c = deck.deal();
+//        std::cout << "card is " << SuitNames[c.suit] << SpotNames[c.spot] << std::endl;
         hand.addCard(c);
         if(hand.handValue().count > 21){
-            hand = kjPower(hand, i + 1, deck, lastcard, player);
+            hand = kjPower(hand, i, deck, lastcard, player);
         }
         lastcard = c;
     }
     return hand;
 }
-
+bool hithere = false;
 Card kjHit(Hand & hand, int cardNum, Player * player, Card dealerUp, Deck & deck, Card & lastcard){
     int num = cardNum;
-    while(hand.handValue().count < 21 && player->draw(dealerUp, hand)){
-        if(checkDeck(deck)){
-            shuffle(deck, player);
+    Card c;
+    while(true){
+        if(hand.handValue().count < 21 && player->draw(dealerUp, hand)){
+            if(checkDeck(deck)){
+                shuffle(deck, player);
+            }
+            c = deck.deal();
+//            Hand tmphand = hand;
+            hand.addCard(c);
+//            std::cout << "torf" << player->draw(dealerUp, hand) << std::endl;
+//            std::cout << "Player: " << player->getName() << " dealt "
+//                      << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
+//            std::cout << "card is before time " << SuitNames[c.suit] << SpotNames[c.spot] << std::endl;
+//            dealerHit(hand, player, c);
+            num = num + 1;
+            lastcard = c;
             continue;
         }
-        Card c = deck.deal();
-        hand.addCard(c);
-        player->expose(c);
-        num = num + 1;
-        lastcard = c;
+//        num = num + 1;
+        break;
     }
-    if(hand.handValue().count > 21){
-        std::cout << "Star Platinum, Za Warudo" << std::endl;
-        kjPower(hand, num, deck, lastcard, player);
+
+    if(hand.handValue().count <= 21 && !player->draw(dealerUp, hand) ){
+//        std::cout << "torf!" << player->draw(dealerUp, hand) << std::endl;
+//        std::cout << "Dealer: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//            std::cout << "dealer cardnum " << num << std::endl;
+//        std::cout << "Player: " << player->getName() << " dealt "
+//                  << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
+        return lastcard;
+    }
+    if(hand.handValue().count > 21) {
+//        if (!hithere) {
+//            hithere = true;
+//            std::cout << "Player: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//        }
+        std::cout << "Dealer: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//            std::cout << "dealer cardnum " << num << std::endl;
+        hand = kjPower(hand, num, deck, lastcard, player);
+        if (hand.handValue().count < 17) {
+            kjHit(hand, num, player, dealerUp, deck, lastcard);
+        }
     }
     return lastcard;
 }
 
+bool beenhere = false;
 Card dealerkjHit(Hand & hand, int cardNum, Player * player, Deck & deck, Card & lastcard){
     int num = cardNum;
-    while(hand.handValue().count < 17) {
+    Card c;
+    while(true){
         if(checkDeck(deck)){
             shuffle(deck, player);
         }
-        Card c = deck.deal();
+        c = deck.deal();
         hand.addCard(c);
-        num = num + 1;
-        lastcard = c;
-        if(hand.handValue().count > 21){
-            std::cout << "Star Platinum, Za Warudo" << std::endl;
-//            std::cout << "dealer cardnum " << num << std::endl;
-            kjPower(hand, num, deck, lastcard, player);
+        if(hand.handValue().count < 17){
+//            std::cout << "Dealer: " << player->getName() << " dealt "
+//                      << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
+//            std::cout << "card is before time " << SuitNames[c.suit] << SpotNames[c.spot] << std::endl;
+//            dealerHit(hand, player, c);
+            num = num + 1;
+            lastcard = c;
+            continue;
         }
+        num = num + 1;
+        break;
     }
+
+    if(hand.handValue().count >= 17 && hand.handValue().count <= 21 ){
+//        std::cout << "Dealer: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//            std::cout << "dealer cardnum " << num << std::endl;
+        std::cout << "Dealer: " << player->getName() << " dealt "
+                  << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
+        return lastcard;
+    }
+    if(hand.handValue().count > 21){
+//        if(!beenhere){
+//            beenhere = true;
+//            std::cout << "Dealer: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//        }
+        std::cout << "Dealer: " << player->getName() << ": \"Star Platinum, Za Warudo\"" << std::endl;
+//            std::cout << "dealer cardnum " << num << std::endl;
+        hand = kjPower(hand, num, deck, lastcard, player);
+        if(hand.handValue().count < 17){
+            dealerkjHit(hand, num, player, deck, lastcard);
+        }
+//        dealerkjHit(hand, num, player, deck, lastcard);
+//        dealerkjHit(hand, num, player, deck, lastcard);
+//        dealerkjHit(hand, num, player, deck, lastcard);
+    }
+
     return lastcard;
 }
 
@@ -127,15 +186,19 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
 //        bankroll = 2 * bankroll;
 //    }
 
-    Deck oldDeck = shuffle(deck, player);
+//    Deck oldDeck = shuffle(deck, player);
 
     int thishand = 1;
 
+
+    shuffle(deck, player);
     if(bankroll < minBet){
         std::cout << "Player: " << player->getName() << " has " << bankroll << " after " <<
                   "0" << " hands" << endl;
         return;
     }
+
+
 
     while(bankroll >= minBet && thishand <= hands){
         playerWin = false;
@@ -151,29 +214,33 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         Hand handD;
         Hand handP;
 
+        if(checkDeck(deck)){
+            shuffle(deck, player);
+            continue;
+        }
         Card c = deck.deal();
-        if(checkDeck(deck)){
-            shuffle(deck, player);
-            continue;
-        }
+
         deal(handP, handD, 0, player, dealer, c);
-        c = deck.deal();
         if(checkDeck(deck)){
             shuffle(deck, player);
             continue;
         }
+        c = deck.deal();
+
         Card dealerUp = deal(handP, handD, 1, player, dealer, c);
-        c = deck.deal();
         if(checkDeck(deck)){
             shuffle(deck, player);
             continue;
         }
+        c = deck.deal();
+
         deal(handP, handD, 2, player, dealer, c);
-        c = deck.deal();
         if(checkDeck(deck)){
             shuffle(deck, player);
             continue;
         }
+        c = deck.deal();
+
         Card dealerDown = deal(handP, handD, 3, player, dealer, c);
 
         if(handP.handValue().count == 21){
@@ -191,17 +258,20 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         if(player->getName() != SC_Name[1]){
             while(handP.handValue().count < 21 && player->draw(dealerUp, handP)){
 //                std::cout << handP.handValue().count << std::endl;
-                c = deck.deal();
                 if(checkDeck(deck)){
                     shuffle(deck, player);
                     continue;
                 }
+                c = deck.deal();
+
                 playerHit(handP, player, c);
                 cardNum = cardNum + 1;
             }
         }
         else{
             kjHit(handP, 2, player, dealerUp, deck, lastcard);
+//            std::cout << "Player: " << player->getName() << " dealt "
+//                      << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
         }
 //        std::cout << handP.handValue().count << std::endl;
         std::cout << "Player: " << player->getName() << "'s total is "
@@ -221,18 +291,38 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         if(!dealerWin){
             if(dealer->getName() != SC_Name[1]){
                 while(handD.handValue().count < 17){
-                    c = deck.deal();
+//                    std::cout << "stuck here" << std::endl;
                     if(checkDeck(deck)){
                         shuffle(deck, player);
                         continue;
                     }
+                    c = deck.deal();
+
                     dealerHit(handD, dealer, c);
                 }
             }
             else{
-                Card tmpcard = dealerkjHit(handD, 2, dealer, deck, lastcard);
-                std::cout << "Dealer: " << dealer->getName() << " dealt "
-                          << SpotNames[tmpcard.spot] << " of " << SuitNames[tmpcard.suit] << std::endl;
+                dealerkjHit(handD, 2, dealer, deck, lastcard);
+//                Card tmpcard = dealerkjHit(handD, 2, dealer, deck, lastcard);
+//                std::cout << "Dealer: " << dealer->getName() << " dealt "
+//                          << SpotNames[tmpcard.spot] << " of " << SuitNames[tmpcard.suit] << std::endl;
+//                int dealerCard = 2;
+//                while(handD.handValue().count < 17){
+//                    if(checkDeck(deck)){
+//                        shuffle(deck, player);
+//                        continue;
+//                    }
+//                    c = deck.deal();
+//                    dealerHit(handD, dealer, c);
+//                    dealerCard = dealerCard + 1;
+//                    if(handD.handValue().count > 17 && handD.handValue().count <= 21 ){
+//                        break;
+//                    }
+//                    else if(handD.handValue().count > 21){
+//                        handD = kjPower(handD, dealerCard, deck, lastcard, dealer);
+//                    }
+//                }
+
             }
             std::cout << "Dealer: " << dealer->getName() << "'s total is "
                       << handD.handValue().count << std::endl;
@@ -269,16 +359,18 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         if(team == "sos" && p == 0){
             //TODO: check this escape
             if(bankroll < threshold){
-                deck = oldDeck;
+//                deck = oldDeck;
                 std::cout << "Player: " << player->getName() << ": \"Ni Ge Run Da Yo\"" << std::endl;
                 jjWin = false;
                 return;
             }
         }
+        beenhere = false;
+        hithere = false;
         thishand = thishand + 1;
     }
 
-    deck = oldDeck;
+//    deck = oldDeck;
 
     if(team == "sos" && p == 0 && bankroll >= minBet){
         jjWin = true;
@@ -363,6 +455,8 @@ int main(int argc, char * argv[]){
             }
             newBankroll = bankroll;
             p = p + 1;
+            beenhere = false;
+            hithere = false;
         }
         else if(newBankroll >= minBet){
 //            std ::cout << "bankRoll! " << newBankroll << std::endl;
@@ -376,6 +470,8 @@ int main(int argc, char * argv[]){
                 std::cout << "Player: " << player->getName() << ": \"rerorerorero rerorerorero\"" << std::endl;
             }
             d = d + 1;
+            beenhere = false;
+            hithere = false;
         }
 //        std::cout << p << " " << d << std::endl;
 //        std::cout << " the p and d are" << std::endl;
