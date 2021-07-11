@@ -16,7 +16,6 @@ Dealer: Joseph Joestar's hole card is Four of Spades
 Dealer: Joseph Joestar dealt Ten of Hearts
 Dealer: Joseph Joestar's total is 17
 Dealer: Joseph Joestar wins this hand
-Player: Suzumiya Haruhi has 90 after 1 hands
 Hand 2 bankroll 90
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Hearts
@@ -28,7 +27,6 @@ Dealer: Joseph Joestar dealt Jack of Spades
 Dealer: Joseph Joestar dealt Eight of Diamonds
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 100 after 2 hands
 Hand 3 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Eight of Clubs
@@ -39,7 +37,6 @@ Dealer: Joseph Joestar's hole card is Jack of Hearts
 Dealer: Joseph Joestar dealt Ten of Diamonds
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 110 after 3 hands
 Hand 4 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Diamonds
@@ -51,7 +48,6 @@ Dealer: Joseph Joestar dealt Ace of Diamonds
 Dealer: Joseph Joestar dealt Ace of Hearts
 Dealer: Joseph Joestar's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 120 after 4 hands
 Hand 5 bankroll 120
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Hearts
@@ -62,7 +58,6 @@ Dealer: Joseph Joestar's hole card is Five of Clubs
 Dealer: Joseph Joestar dealt Nine of Diamonds
 Dealer: Joseph Joestar's total is 20
 Dealer: Joseph Joestar wins this hand
-Player: Suzumiya Haruhi has 110 after 5 hands
 Hand 6 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Clubs
@@ -73,7 +68,6 @@ Dealer: Joseph Joestar's hole card is Queen of Diamonds
 Dealer: Joseph Joestar dealt Five of Diamonds
 Dealer: Joseph Joestar's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 120 after 6 hands
 Hand 7 bankroll 120
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Two of Hearts
@@ -84,7 +78,6 @@ Player: Suzumiya Haruhi dealt Two of Clubs
 Player: Suzumiya Haruhi dealt Queen of Spades
 Player: Suzumiya Haruhi's total is 24
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 110 after 7 hands
 Hand 8 bankroll 110
 Shuffling the deck
 cut at 23
@@ -103,7 +96,6 @@ Player: Suzumiya Haruhi dealt Two of Hearts
 Player: Suzumiya Haruhi dealt Queen of Clubs
 Player: Suzumiya Haruhi's total is 24
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 100 after 8 hands
 Hand 9 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ten of Hearts
@@ -115,7 +107,6 @@ Dealer: Joseph Joestar dealt Two of Clubs
 Dealer: Joseph Joestar dealt Six of Spades
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 110 after 9 hands
 Hand 10 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Four of Spades
@@ -126,7 +117,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Joseph Joestar's hole card is Ace of Diamonds
 Dealer: Joseph Joestar's total is 18
 Dealer: Joseph Joestar wins this hand
-Player: Suzumiya Haruhi has 100 after 10 hands
 Hand 11 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Eight of Hearts
@@ -139,7 +129,6 @@ Dealer: Joseph Joestar dealt Five of Spades
 Dealer: Joseph Joestar dealt Queen of Spades
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 110 after 11 hands
 Hand 12 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Clubs
@@ -148,7 +137,6 @@ Player: Suzumiya Haruhi dealt Six of Diamonds
 Player: Suzumiya Haruhi dealt Ten of Diamonds
 Player: Suzumiya Haruhi's total is 22
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 100 after 12 hands
 Hand 13 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Clubs
@@ -158,7 +146,6 @@ Player: Suzumiya Haruhi's total is 18
 Dealer: Joseph Joestar's hole card is King of Diamonds
 Dealer: Joseph Joestar's total is 18
 Push
-Player: Suzumiya Haruhi has 100 after 13 hands
 Hand 14 bankroll 100
 Shuffling the deck
 cut at 23
@@ -178,7 +165,6 @@ Dealer: Joseph Joestar dealt Seven of Spades
 Dealer: Joseph Joestar dealt Nine of Diamonds
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 110 after 14 hands
 Hand 15 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Spades
@@ -187,7 +173,6 @@ Player: Suzumiya Haruhi dealt Six of Diamonds
 Player: Suzumiya Haruhi dealt Seven of Clubs
 Player: Suzumiya Haruhi's total is 23
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 100 after 15 hands
 Hand 16 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Spades
@@ -198,7 +183,6 @@ Dealer: Joseph Joestar's hole card is Eight of Clubs
 Dealer: Joseph Joestar dealt Ten of Hearts
 Dealer: Joseph Joestar's total is 23
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 110 after 16 hands
 Hand 17 bankroll 110
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Clubs
@@ -208,7 +192,6 @@ Player: Suzumiya Haruhi dealt Four of Diamonds
 Player: Suzumiya Haruhi dealt King of Clubs
 Player: Suzumiya Haruhi's total is 25
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 100 after 17 hands
 Hand 18 bankroll 100
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Spades
@@ -220,7 +203,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Joseph Joestar's hole card is Eight of Hearts
 Dealer: Joseph Joestar's total is 19
 Dealer: Joseph Joestar wins this hand
-Player: Suzumiya Haruhi has 90 after 18 hands
 Hand 19 bankroll 90
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Hearts
@@ -232,7 +214,6 @@ Dealer: Joseph Joestar's hole card is Jack of Clubs
 Dealer: Joseph Joestar dealt Queen of Clubs
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Suzumiya Haruhi has 100 after 19 hands
 Hand 20 bankroll 100
 Shuffling the deck
 cut at 24
@@ -271,7 +252,6 @@ Dealer: Kujo Jotaro's hole card is Eight of Hearts
 Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro's total is 21
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 80 after 1 hands
 Hand 2 bankroll 80
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ten of Diamonds
@@ -280,7 +260,6 @@ Player: Suzumiya Haruhi dealt Six of Spades
 Player: Suzumiya Haruhi dealt Jack of Clubs
 Player: Suzumiya Haruhi's total is 26
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 70 after 2 hands
 Hand 3 bankroll 70
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Four of Clubs
@@ -292,7 +271,6 @@ Dealer: Kujo Jotaro's hole card is Seven of Clubs
 Dealer: Kujo Jotaro dealt Seven of Spades
 Dealer: Kujo Jotaro's total is 21
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 60 after 3 hands
 Hand 4 bankroll 60
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Clubs
@@ -304,7 +282,6 @@ Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 70 after 4 hands
 Hand 5 bankroll 70
 Shuffling the deck
 cut at 28
@@ -323,7 +300,6 @@ Dealer: Kujo Jotaro's hole card is Four of Spades
 Dealer: Kujo Jotaro dealt Five of Diamonds
 Dealer: Kujo Jotaro's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 80 after 5 hands
 Hand 6 bankroll 80
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Diamonds
@@ -334,7 +310,6 @@ Dealer: Kujo Jotaro's hole card is King of Clubs
 Dealer: Kujo Jotaro dealt Seven of Diamonds
 Dealer: Kujo Jotaro's total is 20
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 70 after 6 hands
 Hand 7 bankroll 70
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Clubs
@@ -347,7 +322,6 @@ Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro's total is 20
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 60 after 7 hands
 Hand 8 bankroll 60
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Diamonds
@@ -358,7 +332,6 @@ Dealer: Kujo Jotaro's hole card is Ace of Spades
 Dealer: Kujo Jotaro dealt Seven of Hearts
 Dealer: Kujo Jotaro's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 70 after 8 hands
 Hand 9 bankroll 70
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Spades
@@ -369,7 +342,6 @@ Player: Suzumiya Haruhi dealt Ace of Hearts
 Player: Suzumiya Haruhi dealt Jack of Spades
 Player: Suzumiya Haruhi's total is 22
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 60 after 9 hands
 Hand 10 bankroll 60
 Shuffling the deck
 cut at 29
@@ -389,7 +361,6 @@ Dealer: Kujo Jotaro's hole card is Nine of Diamonds
 Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro's total is 21
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 50 after 10 hands
 Hand 11 bankroll 50
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Clubs
@@ -402,7 +373,6 @@ Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro dealt Five of Diamonds
 Dealer: Kujo Jotaro's total is 20
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 40 after 11 hands
 Hand 12 bankroll 40
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Spades
@@ -414,7 +384,6 @@ Dealer: Kujo Jotaro's hole card is Ace of Spades
 Dealer: Kujo Jotaro dealt Seven of Diamonds
 Dealer: Kujo Jotaro's total is 19
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 30 after 12 hands
 Hand 13 bankroll 30
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Hearts
@@ -435,7 +404,6 @@ cut at 21
 cut at 27
 Dealer: Kujo Jotaro's total is 19
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 20 after 13 hands
 Hand 14 bankroll 20
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Hearts
@@ -446,7 +414,6 @@ Dealer: Kujo Jotaro's hole card is King of Diamonds
 Dealer: Kujo Jotaro dealt Five of Hearts
 Dealer: Kujo Jotaro's total is 20
 Push
-Player: Suzumiya Haruhi has 20 after 14 hands
 Hand 15 bankroll 20
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Clubs
@@ -457,7 +424,6 @@ Dealer: Kujo Jotaro's hole card is Six of Spades
 Dealer: Kujo Jotaro dealt Seven of Spades
 Dealer: Kujo Jotaro's total is 19
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 10 after 15 hands
 Hand 16 bankroll 10
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Eight of Diamonds
@@ -469,7 +435,6 @@ Dealer: Kujo Jotaro's hole card is Ten of Diamonds
 Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 20 after 16 hands
 Hand 17 bankroll 20
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Clubs
@@ -494,7 +459,6 @@ Dealer: Kujo Jotaro's hole card is Six of Clubs
 Dealer: Kujo Jotaro dealt Queen of Hearts
 Dealer: Kujo Jotaro's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 60 after 17 hands
 Hand 18 bankroll 60
 Shuffling the deck
 cut at 27
@@ -511,7 +475,6 @@ Player: Suzumiya Haruhi dealt Five of Spades
 Player: Suzumiya Haruhi dealt Jack of Clubs
 Player: Suzumiya Haruhi's total is 22
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 50 after 18 hands
 Hand 19 bankroll 50
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Diamonds
@@ -529,7 +492,6 @@ Dealer: Kujo Jotaro: "Star Platinum, Za Warudo"
 Dealer: Kujo Jotaro dealt Two of Spades
 Dealer: Kujo Jotaro's total is 18
 Dealer: Kujo Jotaro wins this hand
-Player: Suzumiya Haruhi has 55 after 19 hands
 Hand 20 bankroll 55
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Clubs
@@ -561,7 +523,6 @@ Dealer: Jean Pierre Polnareff dealt Ace of Spades
 Dealer: Jean Pierre Polnareff dealt King of Hearts
 Dealer: Jean Pierre Polnareff's total is 24
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 55 after 1 hands
 Hand 2 bankroll 55
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ten of Diamonds
@@ -572,7 +533,6 @@ Player: Suzumiya Haruhi's total is 19
 Dealer: Jean Pierre Polnareff's hole card is Seven of Diamonds
 Dealer: Jean Pierre Polnareff's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 65 after 2 hands
 Hand 3 bankroll 65
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Clubs
@@ -583,7 +543,6 @@ Dealer: Jean Pierre Polnareff's hole card is Queen of Hearts
 Dealer: Jean Pierre Polnareff dealt Jack of Spades
 Dealer: Jean Pierre Polnareff's total is 26
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 75 after 3 hands
 Hand 4 bankroll 75
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Two of Hearts
@@ -596,7 +555,6 @@ Dealer: Jean Pierre Polnareff's hole card is Six of Hearts
 Dealer: Jean Pierre Polnareff dealt Three of Spades
 Dealer: Jean Pierre Polnareff's total is 19
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 85 after 4 hands
 Hand 5 bankroll 85
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Hearts
@@ -607,7 +565,6 @@ Dealer: Jean Pierre Polnareff's hole card is Nine of Diamonds
 Dealer: Jean Pierre Polnareff dealt Seven of Spades
 Dealer: Jean Pierre Polnareff's total is 19
 Push
-Player: Suzumiya Haruhi has 85 after 5 hands
 Hand 6 bankroll 85
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Hearts
@@ -617,7 +574,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Jean Pierre Polnareff's hole card is Ten of Hearts
 Dealer: Jean Pierre Polnareff's total is 21
 Dealer: Jean Pierre Polnareff wins this hand
-Player: Suzumiya Haruhi has 75 after 6 hands
 Hand 7 bankroll 75
 Shuffling the deck
 cut at 21
@@ -636,7 +592,6 @@ Dealer: Jean Pierre Polnareff's hole card is Seven of Diamonds
 Dealer: Jean Pierre Polnareff dealt Six of Clubs
 Dealer: Jean Pierre Polnareff's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 85 after 7 hands
 Hand 8 bankroll 85
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Clubs
@@ -648,7 +603,6 @@ Dealer: Jean Pierre Polnareff dealt Three of Hearts
 Dealer: Jean Pierre Polnareff dealt Jack of Hearts
 Dealer: Jean Pierre Polnareff's total is 24
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 95 after 8 hands
 Hand 9 bankroll 95
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Four of Spades
@@ -661,7 +615,6 @@ Dealer: Jean Pierre Polnareff's hole card is Five of Clubs
 Dealer: Jean Pierre Polnareff dealt Queen of Diamonds
 Dealer: Jean Pierre Polnareff's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 105 after 9 hands
 Hand 10 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Two of Spades
@@ -674,7 +627,6 @@ Dealer: Jean Pierre Polnareff's hole card is Seven of Spades
 Dealer: Jean Pierre Polnareff dealt Nine of Clubs
 Dealer: Jean Pierre Polnareff's total is 25
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 115 after 10 hands
 Hand 11 bankroll 115
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Diamonds
@@ -686,7 +638,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Jean Pierre Polnareff's hole card is Ten of Spades
 Dealer: Jean Pierre Polnareff's total is 21
 Dealer: Jean Pierre Polnareff wins this hand
-Player: Suzumiya Haruhi has 105 after 11 hands
 Hand 12 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Hearts
@@ -695,7 +646,6 @@ Player: Suzumiya Haruhi dealt Four of Hearts
 Player: Suzumiya Haruhi dealt Queen of Clubs
 Player: Suzumiya Haruhi's total is 24
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 95 after 12 hands
 Hand 13 bankroll 95
 Shuffling the deck
 cut at 35
@@ -713,7 +663,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Jean Pierre Polnareff's hole card is Ten of Spades
 Dealer: Jean Pierre Polnareff's total is 20
 Dealer: Jean Pierre Polnareff wins this hand
-Player: Suzumiya Haruhi has 85 after 13 hands
 Hand 14 bankroll 85
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Clubs
@@ -724,7 +673,6 @@ Dealer: Jean Pierre Polnareff's hole card is Five of Hearts
 Dealer: Jean Pierre Polnareff dealt Jack of Spades
 Dealer: Jean Pierre Polnareff's total is 25
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 95 after 14 hands
 Hand 15 bankroll 95
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Spades
@@ -736,7 +684,6 @@ Player: Suzumiya Haruhi's total is 19
 Dealer: Jean Pierre Polnareff's hole card is Jack of Hearts
 Dealer: Jean Pierre Polnareff's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 105 after 15 hands
 Hand 16 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Hearts
@@ -746,7 +693,6 @@ Player: Suzumiya Haruhi dealt King of Diamonds
 Player: Suzumiya Haruhi dealt Ten of Clubs
 Player: Suzumiya Haruhi's total is 25
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 95 after 16 hands
 Hand 17 bankroll 95
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Clubs
@@ -758,7 +704,6 @@ Dealer: Jean Pierre Polnareff dealt Queen of Hearts
 Dealer: Jean Pierre Polnareff dealt Eight of Hearts
 Dealer: Jean Pierre Polnareff's total is 24
 Dealer: Jean Pierre Polnareff busts
-Player: Suzumiya Haruhi has 105 after 17 hands
 Hand 18 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Diamonds
@@ -770,7 +715,6 @@ Player: Suzumiya Haruhi's total is 18
 Dealer: Jean Pierre Polnareff's hole card is Jack of Diamonds
 Dealer: Jean Pierre Polnareff's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 115 after 18 hands
 Hand 19 bankroll 115
 Shuffling the deck
 cut at 25
@@ -789,7 +733,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Jean Pierre Polnareff's hole card is Queen of Spades
 Dealer: Jean Pierre Polnareff's total is 19
 Dealer: Jean Pierre Polnareff wins this hand
-Player: Suzumiya Haruhi has 105 after 19 hands
 Hand 20 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Hearts
@@ -823,7 +766,6 @@ Dealer: Kakyoin Noriaki dealt Queen of Hearts
 Dealer: Kakyoin Noriaki dealt Seven of Spades
 Dealer: Kakyoin Noriaki's total is 22
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 115 after 1 hands
 Hand 2 bankroll 115
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Spades
@@ -835,7 +777,6 @@ Dealer: Kakyoin Noriaki dealt Two of Diamonds
 Dealer: Kakyoin Noriaki dealt Five of Spades
 Dealer: Kakyoin Noriaki's total is 21
 Dealer: Kakyoin Noriaki wins this hand
-Player: Suzumiya Haruhi has 105 after 2 hands
 Hand 3 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Diamonds
@@ -848,7 +789,6 @@ Dealer: Kakyoin Noriaki dealt Three of Clubs
 Dealer: Kakyoin Noriaki dealt Jack of Clubs
 Dealer: Kakyoin Noriaki's total is 25
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 115 after 3 hands
 Hand 4 bankroll 115
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Two of Spades
@@ -857,7 +797,6 @@ Player: Suzumiya Haruhi dealt Ten of Clubs
 Player: Suzumiya Haruhi dealt Queen of Diamonds
 Player: Suzumiya Haruhi's total is 22
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 105 after 4 hands
 Hand 5 bankroll 105
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Clubs
@@ -870,7 +809,6 @@ Dealer: Kakyoin Noriaki dealt Two of Hearts
 Dealer: Kakyoin Noriaki dealt King of Clubs
 Dealer: Kakyoin Noriaki's total is 22
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 115 after 5 hands
 Hand 6 bankroll 115
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Hearts
@@ -883,7 +821,6 @@ Dealer: Kakyoin Noriaki dealt Eight of Spades
 Dealer: Kakyoin Noriaki dealt Nine of Hearts
 Dealer: Kakyoin Noriaki's total is 22
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 125 after 6 hands
 Hand 7 bankroll 125
 Shuffling the deck
 cut at 39
@@ -902,7 +839,6 @@ Player: Suzumiya Haruhi's total is 19
 Dealer: Kakyoin Noriaki's hole card is Seven of Diamonds
 Dealer: Kakyoin Noriaki's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 135 after 7 hands
 Hand 8 bankroll 135
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Clubs
@@ -914,7 +850,6 @@ Dealer: Kakyoin Noriaki dealt Three of Clubs
 Dealer: Kakyoin Noriaki dealt Jack of Hearts
 Dealer: Kakyoin Noriaki's total is 25
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 145 after 8 hands
 Hand 9 bankroll 145
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Five of Spades
@@ -923,7 +858,6 @@ Player: Suzumiya Haruhi dealt Queen of Diamonds
 Player: Suzumiya Haruhi dealt Queen of Spades
 Player: Suzumiya Haruhi's total is 25
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 135 after 9 hands
 Hand 10 bankroll 135
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Clubs
@@ -934,7 +868,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Kakyoin Noriaki's hole card is Jack of Diamonds
 Dealer: Kakyoin Noriaki's total is 20
 Push
-Player: Suzumiya Haruhi has 135 after 10 hands
 Hand 11 bankroll 135
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Eight of Spades
@@ -946,7 +879,6 @@ Dealer: Kakyoin Noriaki's hole card is Two of Clubs
 Dealer: Kakyoin Noriaki dealt Six of Hearts
 Dealer: Kakyoin Noriaki's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 145 after 11 hands
 Hand 12 bankroll 145
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Diamonds
@@ -958,7 +890,6 @@ Dealer: Kakyoin Noriaki dealt Five of Diamonds
 Dealer: Kakyoin Noriaki dealt Ten of Spades
 Dealer: Kakyoin Noriaki's total is 24
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 155 after 12 hands
 Hand 13 bankroll 155
 Shuffling the deck
 cut at 28
@@ -975,7 +906,6 @@ Player: Suzumiya Haruhi dealt Five of Spades
 Player: Suzumiya Haruhi dealt Jack of Spades
 Player: Suzumiya Haruhi's total is 25
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 145 after 13 hands
 Hand 14 bankroll 145
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Seven of Hearts
@@ -987,7 +917,6 @@ Dealer: Kakyoin Noriaki's hole card is Eight of Diamonds
 Dealer: Kakyoin Noriaki dealt Four of Clubs
 Dealer: Kakyoin Noriaki's total is 17
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 155 after 14 hands
 Hand 15 bankroll 155
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Hearts
@@ -999,7 +928,6 @@ Dealer: Kakyoin Noriaki dealt Four of Hearts
 Dealer: Kakyoin Noriaki dealt Nine of Diamonds
 Dealer: Kakyoin Noriaki's total is 22
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 165 after 15 hands
 Hand 16 bankroll 165
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Spades
@@ -1010,7 +938,6 @@ Dealer: Kakyoin Noriaki's hole card is Queen of Spades
 Dealer: Kakyoin Noriaki dealt Seven of Spades
 Dealer: Kakyoin Noriaki's total is 20
 Dealer: Kakyoin Noriaki wins this hand
-Player: Suzumiya Haruhi has 155 after 16 hands
 Hand 17 bankroll 155
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Diamonds
@@ -1022,7 +949,6 @@ Dealer: Kakyoin Noriaki dealt Six of Spades
 Dealer: Kakyoin Noriaki dealt King of Diamonds
 Dealer: Kakyoin Noriaki's total is 26
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 165 after 17 hands
 Hand 18 bankroll 165
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Spades
@@ -1040,7 +966,6 @@ Dealer: Kakyoin Noriaki's hole card is Six of Clubs
 Dealer: Kakyoin Noriaki dealt Jack of Diamonds
 Dealer: Kakyoin Noriaki's total is 24
 Dealer: Kakyoin Noriaki busts
-Player: Suzumiya Haruhi has 190 after 18 hands
 Hand 19 bankroll 190
 Shuffling the deck
 cut at 27
@@ -1062,7 +987,6 @@ Dealer: Kakyoin Noriaki dealt Eight of Clubs
 Dealer: Kakyoin Noriaki dealt Four of Hearts
 Dealer: Kakyoin Noriaki's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 200 after 19 hands
 Hand 20 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Clubs
@@ -1093,7 +1017,6 @@ Dealer: Mohammed Avdol's hole card is Six of Diamonds
 Dealer: Mohammed Avdol dealt Five of Clubs
 Dealer: Mohammed Avdol's total is 21
 Dealer: Mohammed Avdol wins this hand
-Player: Suzumiya Haruhi has 200 after 1 hands
 Hand 2 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Hearts
@@ -1104,7 +1027,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Mohammed Avdol's hole card is Eight of Spades
 Dealer: Mohammed Avdol's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 210 after 2 hands
 Hand 3 bankroll 210
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Eight of Clubs
@@ -1113,7 +1035,6 @@ Player: Suzumiya Haruhi dealt Five of Diamonds
 Player: Suzumiya Haruhi dealt Nine of Clubs
 Player: Suzumiya Haruhi's total is 22
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 200 after 3 hands
 Hand 4 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Diamonds
@@ -1123,7 +1044,6 @@ Player: Suzumiya Haruhi dealt Ace of Diamonds
 Player: Suzumiya Haruhi dealt Ten of Spades
 Player: Suzumiya Haruhi's total is 23
 Player: Suzumiya Haruhi busts
-Player: Suzumiya Haruhi has 190 after 4 hands
 Hand 5 bankroll 190
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Diamonds
@@ -1133,7 +1053,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Mohammed Avdol's hole card is Nine of Spades
 Dealer: Mohammed Avdol's total is 19
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 200 after 5 hands
 Hand 6 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt King of Hearts
@@ -1145,7 +1064,6 @@ Dealer: Mohammed Avdol dealt Five of Spades
 Dealer: Mohammed Avdol dealt Seven of Hearts
 Dealer: Mohammed Avdol's total is 18
 Dealer: Mohammed Avdol wins this hand
-Player: Suzumiya Haruhi has 190 after 6 hands
 Hand 7 bankroll 190
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Two of Diamonds
@@ -1158,7 +1076,6 @@ Player: Suzumiya Haruhi's total is 17
 Dealer: Mohammed Avdol's hole card is Seven of Clubs
 Dealer: Mohammed Avdol's total is 17
 Push
-Player: Suzumiya Haruhi has 190 after 7 hands
 Hand 8 bankroll 190
 Shuffling the deck
 cut at 23
@@ -1177,7 +1094,6 @@ Dealer: Mohammed Avdol's hole card is Jack of Spades
 Dealer: Mohammed Avdol dealt Queen of Clubs
 Dealer: Mohammed Avdol's total is 24
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 200 after 8 hands
 Hand 9 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Hearts
@@ -1187,7 +1103,6 @@ Player: Suzumiya Haruhi's total is 18
 Dealer: Mohammed Avdol's hole card is Queen of Hearts
 Dealer: Mohammed Avdol's total is 20
 Dealer: Mohammed Avdol wins this hand
-Player: Suzumiya Haruhi has 190 after 9 hands
 Hand 10 bankroll 190
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Spades
@@ -1201,7 +1116,6 @@ Dealer: Mohammed Avdol dealt Four of Hearts
 Dealer: Mohammed Avdol dealt Jack of Diamonds
 Dealer: Mohammed Avdol's total is 25
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 200 after 10 hands
 Hand 11 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Spades
@@ -1212,7 +1126,6 @@ Dealer: Mohammed Avdol's hole card is Five of Diamonds
 Dealer: Mohammed Avdol dealt King of Spades
 Dealer: Mohammed Avdol's total is 25
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 210 after 11 hands
 Hand 12 bankroll 210
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Clubs
@@ -1223,7 +1136,6 @@ Dealer: Mohammed Avdol's hole card is Six of Hearts
 Dealer: Mohammed Avdol dealt Ace of Hearts
 Dealer: Mohammed Avdol's total is 20
 Dealer: Mohammed Avdol wins this hand
-Player: Suzumiya Haruhi has 200 after 12 hands
 Hand 13 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ten of Hearts
@@ -1234,7 +1146,6 @@ Player: Suzumiya Haruhi's total is 19
 Dealer: Mohammed Avdol's hole card is King of Diamonds
 Dealer: Mohammed Avdol's total is 20
 Dealer: Mohammed Avdol wins this hand
-Player: Suzumiya Haruhi has 190 after 13 hands
 Hand 14 bankroll 190
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Six of Spades
@@ -1245,7 +1156,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Mohammed Avdol's hole card is Seven of Spades
 Dealer: Mohammed Avdol's total is 18
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 200 after 14 hands
 Hand 15 bankroll 200
 Shuffling the deck
 cut at 38
@@ -1266,7 +1176,6 @@ Player: Suzumiya Haruhi's total is 20
 Dealer: Mohammed Avdol's hole card is King of Hearts
 Dealer: Mohammed Avdol's total is 20
 Push
-Player: Suzumiya Haruhi has 200 after 15 hands
 Hand 16 bankroll 200
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Queen of Spades
@@ -1277,7 +1186,6 @@ Dealer: Mohammed Avdol's hole card is Five of Hearts
 Dealer: Mohammed Avdol dealt Seven of Diamonds
 Dealer: Mohammed Avdol's total is 19
 Player: Suzumiya Haruhi wins this hand
-Player: Suzumiya Haruhi has 210 after 16 hands
 Hand 17 bankroll 210
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Three of Diamonds
@@ -1290,7 +1198,6 @@ Dealer: Mohammed Avdol dealt Six of Clubs
 Dealer: Mohammed Avdol dealt Queen of Diamonds
 Dealer: Mohammed Avdol's total is 22
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 220 after 17 hands
 Hand 18 bankroll 220
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Nine of Clubs
@@ -1301,7 +1208,6 @@ Dealer: Mohammed Avdol's hole card is Queen of Clubs
 Dealer: Mohammed Avdol dealt Nine of Diamonds
 Dealer: Mohammed Avdol's total is 24
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 230 after 18 hands
 Hand 19 bankroll 230
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Jack of Hearts
@@ -1313,7 +1219,6 @@ Dealer: Mohammed Avdol dealt Jack of Spades
 Dealer: Mohammed Avdol dealt Ten of Hearts
 Dealer: Mohammed Avdol's total is 23
 Dealer: Mohammed Avdol busts
-Player: Suzumiya Haruhi has 240 after 19 hands
 Hand 20 bankroll 240
 Player: Suzumiya Haruhi bets 10
 Player: Suzumiya Haruhi dealt Ace of Spades

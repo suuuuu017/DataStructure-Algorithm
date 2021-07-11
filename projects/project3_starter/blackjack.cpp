@@ -358,12 +358,15 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
             std::cout << "Push" << endl;
         }
 
-        std::cout << "Player: " << player->getName() << " has " << bankroll << " after " <<
-             thishand << " hands" << endl;
+//        std::cout << "Player: " << player->getName() << " has " << bankroll << " after " <<
+//             thishand << " hands" << endl;
         if(team == "sos" && p == 0){
             //TODO: check this escape
             if(bankroll < threshold){
 //                deck = oldDeck;
+
+                std::cout << "Player: " << player->getName() << " has " << bankroll << " after " <<
+                          thishand << " hands" << endl;
                 std::cout << "Player: " << player->getName() << ": \"Ni Ge Run Da Yo\"" << std::endl;
                 jjWin = false;
                 return;
@@ -373,6 +376,8 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
         hithere = false;
         thishand = thishand + 1;
     }
+    std::cout << "Player: " << player->getName() << " has " << bankroll << " after " <<
+        (thishand - 1) << " hands" << endl;
 
 //    deck = oldDeck;
 
