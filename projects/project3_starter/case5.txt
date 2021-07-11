@@ -37,7 +37,6 @@ Player: Nagato Yuki dealt Two of Hearts
 Player: Nagato Yuki dealt Queen of Clubs
 Player: Nagato Yuki's total is 24
 Player: Nagato Yuki busts
-Dealer: Joseph Joestar wins this hand
 Player: Nagato Yuki has 0 after 1 hands
 Player: Nagato Yuki has been kicked out. The winner of this round is Joseph Joestar.
 Dealer: Joseph Joestar: "Nice!"
@@ -60,7 +59,6 @@ Dealer: Joseph Joestar dealt Seven of Spades
 Dealer: Joseph Joestar dealt Nine of Diamonds
 Dealer: Joseph Joestar's total is 22
 Dealer: Joseph Joestar busts
-Player: Asahina Mikuru wins this hand
 Player: Asahina Mikuru has 10 after 1 hands
 Dealer: Joseph Joestar has been kicked out. The winner of this round is Asahina Mikuru.
 Shuffling the deck
@@ -101,7 +99,6 @@ Dealer: Jean Pierre Polnareff's hole card is Eight of Hearts
 Dealer: Jean Pierre Polnareff dealt Jack of Spades
 Dealer: Jean Pierre Polnareff's total is 24
 Dealer: Jean Pierre Polnareff busts
-Player: Asahina Mikuru wins this hand
 Player: Asahina Mikuru has 10 after 1 hands
 Dealer: Jean Pierre Polnareff has been kicked out. The winner of this round is Asahina Mikuru.
 Shuffling the deck

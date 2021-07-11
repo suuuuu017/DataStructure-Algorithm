@@ -246,12 +246,16 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
 
 
         if((handD.handValue().count > handP.handValue().count && handD.handValue().count <= 21) || dealerWin){
-            std::cout << "Dealer: " << dealer->getName() << " wins this hand" << std::endl;
+            if(handD.handValue().count > handP.handValue().count && handD.handValue().count <= 21){
+                std::cout << "Dealer: " << dealer->getName() << " wins this hand" << std::endl;
+            }
             bankroll = bankroll - wager;
             dealerWin = true;
         }
         else if((handD.handValue().count < handP.handValue().count && handP.handValue().count <= 21) || playerWin){
-            std::cout << "Player: " << player->getName() << " wins this hand" << std::endl;
+            if(handD.handValue().count < handP.handValue().count && handP.handValue().count <= 21){
+                std::cout << "Player: " << player->getName() << " wins this hand" << std::endl;
+            }
             bankroll = bankroll + wager;
             playerWin = true;
         }
@@ -378,7 +382,7 @@ int main(int argc, char * argv[]){
 
     }
 
-    if(p == 5 && team == "sc"){
+    if((p == 5 && team == "sc") || (d == 5 && team == "sos")){
         std::cout << "Game over. The winner is Stardust Crusaders. SOS Brigade will return the computer to "
                      "Joseph Joestar and Suzumiya Haruhi will become a member of Stardust Crusaders"
                   << std::endl;
