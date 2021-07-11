@@ -100,6 +100,8 @@ Card kjHit(Hand & hand, int cardNum, Player * player, Card dealerUp, Deck & deck
             lastcard = c;
             continue;
         }
+//        std::cout << "Player: " << player->getName() << " dealt "
+//            << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
 //        num = num + 1;
         break;
     }
@@ -124,6 +126,8 @@ Card kjHit(Hand & hand, int cardNum, Player * player, Card dealerUp, Deck & deck
             kjHit(hand, num, player, dealerUp, deck, lastcard);
         }
     }
+    std::cout << "Player: " << player->getName() << " dealt "
+          << SpotNames[c.spot] << " of " << SuitNames[c.suit] << std::endl;
     return lastcard;
 }
 
@@ -252,7 +256,7 @@ void play(Player * player, Player * dealer, int minBet, int & bankroll,
             continue;
         }
 
-        Card lastcard;
+        Card lastcard = c;
 
         int cardNum = 2;
         if(player->getName() != SC_Name[1]){
