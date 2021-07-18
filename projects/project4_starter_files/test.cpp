@@ -30,6 +30,7 @@ int main() {
     treeCheck(tree);
 
     Node *x = tree.find(9);
+    cout << x->getVal() << endl;
     x->setLeft(100);
     cout << tree.findPath(100) << endl;
 
