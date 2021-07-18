@@ -1,6 +1,7 @@
 #include "BinaryTree.h"
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -63,8 +64,20 @@ BinaryTree::BinaryTree(const BinaryTree &tree) {
     this->root = copyNodeHelper(tree.root);
 }
 
+//Node * constructFromList(std::vector<nodeValue> &source, int i, int length, Node * node){
+//    if(i > length){
+//        return node;
+//    }
+//    node->setVal(const_cast<const int&>(source.at(i)));
+////    node->setLeft(source[2 * i + 1]);
+//    constructFromList(source, 2 * i + 1, length, node->getLeft());
+////    node->setRight(source[2 * 1 + 2]);
+//    constructFromList(source, 2 * i + 2, length, node->getRight());
+//    return node;
+//}
+
 BinaryTree::BinaryTree(std::vector<nodeValue> &source) {
-    //use visit order function
+    this->root = createFromVariant(source, 0);
 }
 
 void deleteHelper(Node * node){
@@ -135,15 +148,152 @@ std::string BinaryTree::findPath(const int &value) const {
     findPathHelper(value, this->root, output);
 }
 
-Node * visitThroughHelper(const string &path, Node *node){
-
+Node * visitThroughHelper(string &path, Node *node){
+    if(path.empty() && node){
+        return node;
+    }
+    else if(node && (!path.empty())){
+        char next = path.back();
+        path.pop_back();
+        if(next == '0'){
+            visitThroughHelper(path, node->getLeft());
+        }
+        else if(next == '1'){
+            visitThroughHelper(path, node->getRight());
+        }
+    }
+    return nullptr;
 }
 
 Node *BinaryTree::visitThroughPath(const string &path) const {
     if(path.empty()){
         return this->root;
     }
+    string tmpPath = path;
+    reverse(tmpPath.begin(), tmpPath.end());
+    return visitThroughHelper(tmpPath, this->root);
+}
 
+int sumHelper(Node * node){
+    if(!node){
+        return 0;
+    }
+    return node->getVal() + sumHelper(node->getLeft()) + sumHelper(node->getRight());
+}
+
+int BinaryTree::sum() const {
+    return sumHelper(this->root);
+}
+
+int heightHelper(Node * node){
+    if(!node){
+        return 0;
+    }
+    int lDepth = heightHelper(node->getLeft());
+    int rDepth = heightHelper(node->getRight());
+    if (lDepth < rDepth){
+        return(heightHelper(node->getRight()) + 1);
+    }
+    else{
+        return(heightHelper(node->getLeft()) + 1);
+    }
+}
+
+int BinaryTree::height() const {
+    return heightHelper(this->root);
+}
+
+void preOrderHelper(Node * node){
+    if(!node){
+        return;
+    }
+    cout << node->getVal() << " ";
+    preOrderHelper(node->getLeft());
+    preOrderHelper(node->getRight());
+}
+
+void BinaryTree::preOrder() const {
+    preOrderHelper(this->root);
+    cout << endl;
+}
+
+void inOrderHelper(Node * node){
+    if(!node){
+        return;
+    }
+    preOrderHelper(node->getLeft());
+    cout << node->getVal() << " ";
+    preOrderHelper(node->getRight());
+}
+
+void BinaryTree::inOrder() const {
+    inOrderHelper(this->root);
+    cout << endl;
+}
+
+void postOrderHelper(Node * node){
+    if(!node){
+        return;
+    }
+    preOrderHelper(node->getLeft());
+    preOrderHelper(node->getRight());
+    cout << node->getVal() << " ";
+}
+
+void BinaryTree::postOrder() const {
+    postOrderHelper(this->root);
+    cout << endl;
+}
+
+bool pathSumGreaterHelper(int sum, Node * node){
+    if(!node){
+        return true;
+    }
+    if(!node->getLeft() && !node->getRight()){
+        return node->getVal() > sum;
+    }
+    return pathSumGreaterHelper(sum - node->getVal(), node->getLeft()) &&
+            pathSumGreaterHelper(sum - node->getVal(), node->getRight());
+}
+
+bool BinaryTree::allPathSumGreater(const int &sum) const {
+    int tmpSum = sum;
+    pathSumGreaterHelper(tmpSum, this->root);
+}
+
+bool coverHelper(Node * thisNode, Node * thatNode){
+    if(!thisNode){
+        return true;
+    }
+    else if(!thatNode && thisNode){
+        return false;
+    }
+    else if(thisNode->getVal() != thatNode->getVal()){
+        return false;
+    }
+    return coverHelper(thisNode->getLeft(), thatNode->getLeft()) &&
+            coverHelper(thisNode->getRight(), thatNode->getRight());
+
+}
+
+bool BinaryTree::operator<(const BinaryTree &tree) const {
+    return coverHelper(this->root, tree.root);
+}
+
+bool containHelper(Node * thisnode, Node * thatnode){
+    if(thisnode->getVal() == thatnode->getVal()){
+        return coverHelper(thisnode, thatnode);
+    }
+    return coverHelper(thisnode, thatnode->getLeft()) || coverHelper(thisnode, thatnode->getRight());
+}
+
+bool BinaryTree::operator<<(const BinaryTree &tree) const {
+    return containHelper(this->root, tree.root);
+}
+
+BinaryTree &BinaryTree::operator=(const BinaryTree &tree) {
+    deleteHelper(this->root);
+    this->root = copyNodeHelper(tree.root);
 }
 
 Node *BinaryTree::createFromVariant(const vector<nodeValue> &source, const int &rootIndex) {
