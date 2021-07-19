@@ -40,6 +40,31 @@ void compress(std::istringstream& input){
 //    std::cout << std::endl;
 }
 
+void decompress(std::istringstream& input){
+    BinaryTree decompressTree(0);
+    int index = 0;
+    while(input.peek() != EOF){
+        NodeInfo node;
+        input >> node;
+        int key = node.node_index;
+        Node * parent = decompressTree.find(key);
+        char info = node.c;
+        if(info == '0'){
+            index = index + 1;
+            parent->setLeft(index);
+            std::cout << decompressTree.findPath(index);
+        }
+        else if(info == '1'){
+            index = index + 1;
+            parent->setRight(index);
+            std::cout << decompressTree.findPath(index);
+        }
+        else if(info == '@'){
+            std::cout << decompressTree.findPath(node.node_index);
+        }
+    }
+}
+
 int main(int argc, char *argv[]){
     // TODO: implement your dbc program here!
     std::string option = argv[1];
@@ -52,6 +77,15 @@ int main(int argc, char *argv[]){
         getline(fs, str);
         std::istringstream ss(str);
         compress(ss);
+        fs.close();
+    }
+    else if(option == "-d"){
+        std::fstream fs;
+        fs.open(filePath);
+        std::string str;
+        getline(fs, str);
+        std::istringstream ss(str);
+        decompress(ss);
         fs.close();
     }
     return 0;
