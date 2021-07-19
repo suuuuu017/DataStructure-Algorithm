@@ -48,28 +48,28 @@ int main() {
 
     x = tree.visitThroughPath("001");
     nodePrint(x);
-    treeCheck(waste);
-
-    vector<nodeValue> coveredVec = {4, 2};
-    vector<nodeValue> uncoveredVec = {4, 3};
-    vector<nodeValue> coveredTargetVec = {4, 2, 5, "", 3};
-    BinaryTree covered(coveredVec);
-    BinaryTree uncovered(uncoveredVec);
-    BinaryTree coveredTarget(coveredTargetVec);
-    cout << (covered < coveredTarget) << endl;
-    cout << (uncovered < coveredTarget) << endl;
-
-    vector<nodeValue> containedVec = {3, 6, 7};
-    vector<nodeValue> notContainedVec = {4, 2, 5, "", 3, 7, 8};
-    vector<nodeValue> containedTargetVec = {4, 2, 5, "", 3, "", 8, "", "", 6, 7};
-    BinaryTree contained(containedVec);
-    BinaryTree notContained(notContainedVec);
-    BinaryTree containedTarget(containedTargetVec);
-    cout << (contained << containedTarget) << endl;
-    cout << (notContained << containedTarget) << endl;
-
-    vector<nodeValue> sumGreaterVec = {4, 1, 5, 3, 6};
-    BinaryTree sumGreater(sumGreaterVec);
-    cout << sumGreater.allPathSumGreater(9) << endl;
-    cout << sumGreater.allPathSumGreater(7) << endl;
+//    treeCheck(waste);
+//
+//    vector<nodeValue> coveredVec = {4, 2};
+//    vector<nodeValue> uncoveredVec = {4, 3};
+//    vector<nodeValue> coveredTargetVec = {4, 2, 5, "", 3};
+//    BinaryTree covered(coveredVec);
+//    BinaryTree uncovered(uncoveredVec);
+//    BinaryTree coveredTarget(coveredTargetVec);
+//    cout << (covered < coveredTarget) << endl;
+//    cout << (uncovered < coveredTarget) << endl;
+//
+//    vector<nodeValue> containedVec = {3, 6, 7};
+//    vector<nodeValue> notContainedVec = {4, 2, 5, "", 3, 7, 8};
+//    vector<nodeValue> containedTargetVec = {4, 2, 5, "", 3, "", 8, "", "", 6, 7};
+//    BinaryTree contained(containedVec);
+//    BinaryTree notContained(notContainedVec);
+//    BinaryTree containedTarget(containedTargetVec);
+//    cout << (contained << containedTarget) << endl;
+//    cout << (notContained << containedTarget) << endl;
+//
+//    vector<nodeValue> sumGreaterVec = {4, 1, 5, 3, 6};
+//    BinaryTree sumGreater(sumGreaterVec);
+//    cout << sumGreater.allPathSumGreater(9) << endl;
+//    cout << sumGreater.allPathSumGreater(7) << endl;
 }

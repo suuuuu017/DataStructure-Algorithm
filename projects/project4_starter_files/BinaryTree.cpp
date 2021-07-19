@@ -162,10 +162,16 @@ Node * visitThroughHelper(string &path, Node *node){
             visitThroughHelper(path, node->getLeft());
         }
         else if(next == '1'){
+//            std::cout << "visit right" << std::endl;
+//            cout << "parent before visit right" << node->getVal() << endl;
+//            cout << node->getRight()->getVal() << endl;
             visitThroughHelper(path, node->getRight());
         }
     }
-//    return nullptr;
+    else if(!node){
+//        std::cout << "null " << std::endl;
+        return nullptr;
+    }
 }
 
 Node *BinaryTree::visitThroughPath(const string &path) const {
