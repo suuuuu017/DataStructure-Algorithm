@@ -273,7 +273,10 @@ bool BinaryTree::allPathSumGreater(const int &sum) const {
 }
 
 bool coverHelper(Node * thisNode, Node * thatNode){
-    if(!thisNode){
+    if(!thisNode && !thatNode){
+        return true;
+    }
+    else if(!thisNode && thatNode){
         return true;
     }
     else if(thatNode == nullptr && thisNode){
