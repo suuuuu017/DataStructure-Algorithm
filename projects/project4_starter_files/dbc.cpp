@@ -14,13 +14,15 @@ void compress(std::istringstream& input){
     char c;
     while(input.get(c)){
         longestString.push_back(c);
-        if(compressTree.visitThroughPath(longestString) && (input.peek() == EOF)){
-            Node * lastNode = compressTree.visitThroughPath(longestString);
-            NodeInfo node(lastNode->getVal(), '@');
-            std::cout << node;
+        if(compressTree.visitThroughPath(longestString)){
+//            Node * lastNode = compressTree.visitThroughPath(longestString);
+//            NodeInfo node(lastNode->getVal(), '@');
+////            std::cout << "here " << std::endl;
+//            std::cout << node;
             continue;
         }
         else if(!compressTree.visitThroughPath(longestString)){
+//            std::cout << "here " << longestString << std::endl;
             char lastDigit = longestString.back();
             longestString.pop_back();
             Node * lastNode = compressTree.visitThroughPath(longestString);
@@ -37,7 +39,12 @@ void compress(std::istringstream& input){
             longestString = "";
         }
     }
+    Node * lastNode = compressTree.visitThroughPath(longestString);
+    NodeInfo node(lastNode->getVal(), '@');
+//    std::cout << "here " << std::endl;
+    std::cout << node;
 //    std::cout << std::endl;
+
 }
 
 void decompress(std::istringstream& input){
@@ -75,6 +82,7 @@ int main(int argc, char *argv[]){
         fs.open(filePath);
         std::string str;
         getline(fs, str);
+//        std::cout << str << std::endl;
         std::istringstream ss(str);
         compress(ss);
         fs.close();

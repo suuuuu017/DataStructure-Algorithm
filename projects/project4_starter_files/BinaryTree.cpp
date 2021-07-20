@@ -113,6 +113,7 @@ Node* findHelper(const int &key, Node * node){
             return right;
         }
     }
+    return nullptr;
 }
 
 Node *BinaryTree::find(const int &key) const {
@@ -159,19 +160,20 @@ Node * visitThroughHelper(string &path, Node *node){
         char next = path.back();
         path.pop_back();
         if(next == '0'){
-            visitThroughHelper(path, node->getLeft());
+            return visitThroughHelper(path, node->getLeft());
         }
         else if(next == '1'){
 //            std::cout << "visit right" << std::endl;
 //            cout << "parent before visit right" << node->getVal() << endl;
 //            cout << node->getRight()->getVal() << endl;
-            visitThroughHelper(path, node->getRight());
+            return visitThroughHelper(path, node->getRight());
         }
     }
-    else if(!node){
-//        std::cout << "null " << std::endl;
-        return nullptr;
-    }
+//    else if(!node){
+////        std::cout << "null " << std::endl;
+//        return nullptr;
+//    }
+    return nullptr;
 }
 
 Node *BinaryTree::visitThroughPath(const string &path) const {
@@ -267,7 +269,7 @@ bool pathSumGreaterHelper(int sum, Node * node){
 
 bool BinaryTree::allPathSumGreater(const int &sum) const {
     int tmpSum = sum;
-    pathSumGreaterHelper(tmpSum, this->root);
+    return pathSumGreaterHelper(tmpSum, this->root);
 }
 
 bool coverHelper(Node * thisNode, Node * thatNode){
@@ -317,6 +319,7 @@ bool BinaryTree::operator<<(const BinaryTree &tree) const {
 BinaryTree &BinaryTree::operator=(const BinaryTree &tree) {
     deleteHelper(this->root);
     this->root = copyNodeHelper(tree.root);
+    return *this;
 }
 
 Node *BinaryTree::createFromVariant(const vector<nodeValue> &source, const int &rootIndex) {
