@@ -64,18 +64,6 @@ BinaryTree::BinaryTree(const BinaryTree &tree) {
     this->root = copyNodeHelper(tree.root);
 }
 
-//Node * constructFromList(std::vector<nodeValue> &source, int i, int length, Node * node){
-//    if(i > length){
-//        return node;
-//    }
-//    node->setVal(const_cast<const int&>(source.at(i)));
-////    node->setLeft(source[2 * i + 1]);
-//    constructFromList(source, 2 * i + 1, length, node->getLeft());
-////    node->setRight(source[2 * 1 + 2]);
-//    constructFromList(source, 2 * i + 2, length, node->getRight());
-//    return node;
-//}
-
 BinaryTree::BinaryTree(std::vector<nodeValue> &source) {
     this->root = createFromVariant(source, 0);
 }
@@ -97,21 +85,13 @@ bool BinaryTree::empty() const {
 }
 
 Node* findHelper(const int &key, Node * node){
-    if(!node){
-        return nullptr;
-    }
-    if(node->getVal() == key){
-        return node;
-    }
+    if(!node){return nullptr;}
+    if(node->getVal() == key){return node;}
     else{
         Node* left = findHelper(key, node->getLeft());
-        if(left){
-            return left;
-        }
+        if(left){return left;}
         Node* right = findHelper(key, node->getRight());
-        if(right){
-            return right;
-        }
+        if(right){return right;}
     }
     return nullptr;
 }
@@ -124,24 +104,13 @@ Node *BinaryTree::find(const int &key) const {
 }
 
 bool findPathHelper(const int &value, Node * node, std::string & output){
-    if(!node){
-//        cout << output<< endl;
-        return false;
-    }
-    if(node->getVal() == value){
-//        cout << node->getVal()<< endl;
-        return true;
-    }
+    if(!node){return false;}
+    if(node->getVal() == value){return true;}
     output.push_back('0');
-//    cout << "here" << endl;
-    if(findPathHelper(value, node->getLeft(), output)){
-        return true;
-    }
+    if(findPathHelper(value, node->getLeft(), output)){return true;}
     output.pop_back();
     output.push_back('1');
-    if(findPathHelper(value, node->getRight(), output)){
-        return true;
-    }
+    if(findPathHelper(value, node->getRight(), output)){return true;}
     output.pop_back();
     return false;
 }
@@ -153,26 +122,13 @@ std::string BinaryTree::findPath(const int &value) const {
 }
 
 Node * visitThroughHelper(string &path, Node *node){
-    if(path.empty() && node){
-        return node;
-    }
+    if(path.empty() && node){return node;}
     else if(node && (!path.empty())){
         char next = path.back();
         path.pop_back();
-        if(next == '0'){
-            return visitThroughHelper(path, node->getLeft());
-        }
-        else if(next == '1'){
-//            std::cout << "visit right" << std::endl;
-//            cout << "parent before visit right" << node->getVal() << endl;
-//            cout << node->getRight()->getVal() << endl;
-            return visitThroughHelper(path, node->getRight());
-        }
+        if(next == '0'){return visitThroughHelper(path, node->getLeft());}
+        else if(next == '1'){return visitThroughHelper(path, node->getRight());}
     }
-//    else if(!node){
-////        std::cout << "null " << std::endl;
-//        return nullptr;
-//    }
     return nullptr;
 }
 
@@ -197,9 +153,7 @@ int BinaryTree::sum() const {
 }
 
 int heightHelper(Node * node){
-    if(!node){
-        return 0;
-    }
+    if(!node){return 0;}
     int lDepth = heightHelper(node->getLeft());
     int rDepth = heightHelper(node->getRight());
     if (lDepth < rDepth){
@@ -273,25 +227,12 @@ bool BinaryTree::allPathSumGreater(const int &sum) const {
 }
 
 bool coverHelper(Node * thisNode, Node * thatNode){
-    if(!thisNode && !thatNode){
-        return true;
-    }
-    else if(!thisNode && thatNode){
-        return true;
-    }
-    else if(thatNode == nullptr && thisNode){
-//        cout << "!!" << endl;
-        return false;
-    }
-    else if(thisNode->getVal() != thatNode->getVal()){
-//        cout << "!?" << endl;
-//        cout << "this " << thisNode->getVal() << endl;
-//        cout << "that " << thatNode->getVal() << endl;
-        return false;
-    }
+    if(!thisNode && !thatNode){return true;}
+    else if(!thisNode && thatNode){return true;}
+    else if(thatNode == nullptr && thisNode){return false;}
+    else if(thisNode->getVal() != thatNode->getVal()){return false;}
     return coverHelper(thisNode->getLeft(), thatNode->getLeft()) &&
             coverHelper(thisNode->getRight(), thatNode->getRight());
-
 }
 
 bool BinaryTree::operator<(const BinaryTree &tree) const {
@@ -299,20 +240,13 @@ bool BinaryTree::operator<(const BinaryTree &tree) const {
 }
 
 bool containHelper(Node * thisnode, Node * thatnode){
-//    cout << "this " << thisnode->getVal() << endl;
-//    cout << "that " << thatnode->getVal() << endl;
     if(!thatnode){
         return false;
     }
     if(coverHelper(thisnode, thatnode)){
-//        cout << "here! " << endl;
         return true;
     }
-//    cout << thatnode->getRight()->getVal() << endl;
-//    cout << "here.. "  << coverHelper(thisnode, thatnode) << endl;
     return containHelper(thisnode, thatnode->getLeft()) || containHelper(thisnode, thatnode->getRight());
-//    return containHelper(thisnode, thatnode->getRight());
-
 }
 
 bool BinaryTree::operator<<(const BinaryTree &tree) const {
