@@ -6,6 +6,9 @@
 #include "BinaryTree.h"
 #include "NodeInfo.h"
 
+//REQUIRES: a input stream
+//MODIFIES: the input stream would be extracted constantly till it is empty
+//EFFECTS: the function would output the compress encoding result of a line of binary numbers
 void compress(std::istringstream& input){
     BinaryTree compressTree(0);
 
@@ -15,14 +18,9 @@ void compress(std::istringstream& input){
     while(input.get(c)){
         longestString.push_back(c);
         if(compressTree.visitThroughPath(longestString)){
-//            Node * lastNode = compressTree.visitThroughPath(longestString);
-//            NodeInfo node(lastNode->getVal(), '@');
-////            std::cout << "here " << std::endl;
-//            std::cout << node;
             continue;
         }
         else if(!compressTree.visitThroughPath(longestString)){
-//            std::cout << "here " << longestString << std::endl;
             char lastDigit = longestString.back();
             longestString.pop_back();
             Node * lastNode = compressTree.visitThroughPath(longestString);
@@ -41,12 +39,12 @@ void compress(std::istringstream& input){
     }
     Node * lastNode = compressTree.visitThroughPath(longestString);
     NodeInfo node(lastNode->getVal(), '@');
-//    std::cout << "here " << std::endl;
     std::cout << node;
-//    std::cout << std::endl;
-
 }
 
+//REQUIRES: a input stream
+//MODIFIES: the input stream would be extracted constantly till it is empty
+//EFFECTS: the function would output the decompress binary result of a line compressing encoding pairs
 void decompress(std::istringstream& input){
     BinaryTree decompressTree(0);
     int index = 0;
@@ -82,7 +80,6 @@ int main(int argc, char *argv[]){
         fs.open(filePath);
         std::string str;
         getline(fs, str);
-//        std::cout << str << std::endl;
         std::istringstream ss(str);
         compress(ss);
         fs.close();
