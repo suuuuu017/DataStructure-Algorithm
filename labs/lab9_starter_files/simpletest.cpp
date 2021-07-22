@@ -9,23 +9,34 @@ int main() {
 
     try{
         List<int> la, lb;
-        la.insertBack(5);
-        la.insertBack(4);
-        la.insertBack(1);
-        la.insertBack(3); // a = 3145
+        la.insertBack(0);
+        la.insertBack(0);
+        la.insertBack(0);
+        la.insertBack(5); // a = 3145
         la.print();
 
-        lb.insertBack(2);
-        lb.insertBack(5);
-        lb.insertBack(5);
-        lb.insertBack(8);
-        lb.removeFront(); // b = 314
+//        lb.insertBack(2);
+//        lb.insertBack(0);
+//        lb.insertBack(0);
+//        lb.insertBack(0);
+        lb.insertBack(4);
+        lb.insertBack(4);
+        lb.insertBack(4);
+        lb.insertBack(4);
+        lb.insertBack(4);
+//        lb.removeFront(); // b = 314
+        lb.print();
+        lb = la;
+        std::cout << "after assginment" << std::endl;
         lb.print();
 
-        std::cout << isLarger(la, lb) << '\n';
+        List<int> le(lb);
+
+        std::cout <<"larger " << isLarger(la, lb) << '\n';
 
         List<int> ab_sum(la);
         ab_sum.print();
+        std::cout << "sum is ";
         ab_sum = add(la, lb);
         ab_sum.print();
 

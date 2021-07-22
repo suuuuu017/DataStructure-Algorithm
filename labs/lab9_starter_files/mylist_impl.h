@@ -103,6 +103,9 @@ const Node_t<T> *List<T>::returnFront() const {
 bool isLarger(const List<int> &a, const List<int> &b) {
     List<int> duplicateA(a);
     List<int> duplicateB(b);
+    if(duplicateA.isEmpty() && duplicateB.isEmpty()){
+        return false;
+    }
     int sumA = 0;
     int sumB = 0;
     int aC = 1;
@@ -136,7 +139,6 @@ List<int> add(const List<int> &a, const List<int> &b) {
         }
         else if(!duplicateA.isEmpty() && !duplicateB.isEmpty()){
             sum = duplicateA.removeFront() + duplicateB.removeFront() + carry;
-//            std::cout << "current sum is " << sum;
             if(sum >= 10){
                 carry = 1;
                 sum = sum - 10;
