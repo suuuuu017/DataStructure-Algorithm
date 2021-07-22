@@ -13,12 +13,14 @@ int main() {
         la.insertBack(4);
         la.insertBack(1);
         la.insertBack(3); // a = 3145
+        la.print();
 
         lb.insertBack(2);
-        lb.insertBack(4);
-        lb.insertBack(1);
-        lb.insertBack(3);
+        lb.insertBack(5);
+        lb.insertBack(5);
+        lb.insertBack(8);
         lb.removeFront(); // b = 314
+        lb.print();
 
         std::cout << isLarger(la, lb) << '\n';
 
@@ -36,7 +38,7 @@ int main() {
         ld.removeFront();
         ld.print();
     }
-    catch(emptyList){
+    catch(EmptyList){
         std::cout << "Remove from empty list!\n";
     }
 
