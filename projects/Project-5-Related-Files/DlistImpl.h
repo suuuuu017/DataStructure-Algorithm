@@ -53,8 +53,6 @@ T *Dlist<T>::removeFront() {
     else{
         first->prev = nullptr;
     }
-//    delete victim->op;
-    //TODO: do i have to delete the victim->op?
     delete victim;
     return result;
 }
