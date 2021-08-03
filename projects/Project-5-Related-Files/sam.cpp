@@ -5,6 +5,18 @@
 #include "Dlist.h"
 #include "Instr.h"
 
+const std::string WHITESPACE = " \n\r\t\f\v";
+std::string rightTrim(const std::string & line)
+{
+    size_t end = line.find_last_not_of(WHITESPACE);
+    if(end == std::string::npos){
+        return "";
+    }
+    else{
+        return line.substr(0, end + 1);
+    }
+}
+
 void addInstr(Dlist<int> &stack){
     int * ele1 = stack.removeFront();
     int * ele2 = stack.removeFront();
@@ -113,6 +125,7 @@ int main(int argc, char *argv[])
 
     while(getline(std::cin, line)) {
 //        std::cout << line << std::endl;
+        line = rightTrim(line);
         std::istringstream ss(line);
         ss >> stackNum >> queueNum;
         break;
@@ -120,17 +133,15 @@ int main(int argc, char *argv[])
 //    std::cout << stackNum << " " << queueNum << std::endl;
 
     Dlist<int> stack;
-
-    while(getline(std::cin, line)) {
+    getline(std::cin, line);
 //        std::cout << line << std::endl;
-        std::istringstream ss(line);
-        while(ss.peek() != EOF){
-            int tmpVal = 0;
-            ss >> tmpVal;
-            int *ip = new int(tmpVal);
-            stack.insertFront(ip);
-        }
-        break;
+    line = rightTrim(line);
+    std::istringstream sstack(line);
+    while(sstack.peek() != EOF){
+        int tmpVal = 0;
+        sstack >> tmpVal;
+        int *ip = new int(tmpVal);
+        stack.insertFront(ip);
     }
 //    std::cout << "stack is ";
 //    printStack(stack);
@@ -141,6 +152,7 @@ int main(int argc, char *argv[])
     for(int i = 0; i < queueNum; i++) {
 //        std::cout << line << std::endl;
         getline(std::cin, line);
+        line = rightTrim(line);
         auto *stp = new std::string(line);
         queue.insertBack(stp);
     }
@@ -151,6 +163,7 @@ int main(int argc, char *argv[])
 
     Dlist<int> memory;
     getline(std::cin, line);
+    line = rightTrim(line);
 //    std::cout << "line is" << line << std::endl;
     std::istringstream ss(line);
     int memoryLength = 0;
@@ -238,8 +251,6 @@ int main(int argc, char *argv[])
         printStack(stack);
         printMemory(memoryArray, memoryLength);
     }
-
-
 
     return 0;
 }
