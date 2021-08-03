@@ -9,7 +9,7 @@ bool Dlist<T>::isEmpty() const {
 }
 
 template<class T>
-void Dlist<T>::insertFront(T *op) {
+void Dlist<T>::insertFront(T * op) {
     node * np = new node;
     np->op = op;
     np->next = first;
@@ -48,9 +48,11 @@ T *Dlist<T>::removeFront() {
     first = victim->next;
     if(!first){
         last = nullptr;
-        return result;
+//        return result;
     }
-    first->prev = nullptr;
+    else{
+        first->prev = nullptr;
+    }
 //    delete victim->op;
     //TODO: do i have to delete the victim->op?
     delete victim;
@@ -68,9 +70,10 @@ T *Dlist<T>::removeBack() {
         last = victim->prev;
         if(!last){
             first = nullptr;
-            return result;
         }
-        last->next = nullptr;
+        else{
+            last->next = nullptr;
+        }
 //        delete victim->op;
         delete victim;
         return result;
@@ -80,7 +83,7 @@ T *Dlist<T>::removeBack() {
 template<class T>
 void Dlist<T>::removeAll() {
     while(!isEmpty()){
-        removeFront();
+        delete removeFront();
     }
 }
 

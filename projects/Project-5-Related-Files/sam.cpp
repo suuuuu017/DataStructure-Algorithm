@@ -11,6 +11,8 @@ void addInstr(Dlist<int> &stack){
     int result = *ele1 + *ele2;
     int * ele3 = new int(result);
     stack.insertFront(ele3);
+    delete ele1;
+    delete ele2;
 }
 
 void norInstr(Dlist<int> &stack){
@@ -19,6 +21,8 @@ void norInstr(Dlist<int> &stack){
     int result = ~ (*ele1 | *ele2);
     int * ele3 = new int(result);
     stack.insertFront(ele3);
+    delete ele1;
+    delete ele2;
 }
 
 void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue){
@@ -29,6 +33,7 @@ void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue){
             queue.removeFront();
         }
     }
+    delete stackNum;
 }
 
 void loadInstr(Dlist<int> &stack, int memoryArray[]){
@@ -36,16 +41,19 @@ void loadInstr(Dlist<int> &stack, int memoryArray[]){
     int memoryCon = memoryArray[*memoryAdd];
     int * tmp = new int(memoryCon);
     stack.insertFront(tmp);
+    delete memoryAdd;
 }
 
 void storeInstr(Dlist<int> &stack, int memoryArray[]){
     int * address = stack.removeFront();
     int * value = stack.removeFront();
     memoryArray[*address] = *value;
+    delete address;
+    delete value;
 }
 
 void popInstr(Dlist<int> &stack){
-    stack.removeFront();
+    delete stack.removeFront();
 }
 
 void pushiInstr(Instr& it, Dlist<int> &stack){
@@ -67,6 +75,7 @@ void printStack(Dlist<int> &stack){
     while(!tmpStack.isEmpty()){
         int * out = tmpStack.removeBack();
         std::cout << *out << " ";
+        delete out;
     }
     std::cout << std::endl;
 }
@@ -80,7 +89,7 @@ void printQueue(Dlist<Instr> &queue){
 void print(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue, int memoryArray[], int memoryLength){
     std::cout << it << std::endl;
     printStack(stack);
-    printQueue(queue);
+//    printQueue(queue);
     printMemory(memoryArray, memoryLength);
 }
 
@@ -128,10 +137,16 @@ int main(int argc, char *argv[])
 
     while(getline(std::cin, line)) {
         std::istringstream ss(line);
-        auto *instr = new Instr;
-        ss >> *instr;
+        auto * instr = new Instr;
+        ss >> (*instr);
         queue.insertBack(instr);
     }
+//    while(std::cin) {
+////        std::istringstream ss(line);
+//        auto * instr = new Instr;
+//        std::cin >> (*instr);
+//        queue.insertBack(instr);
+//    }
 //    std::cout << "queue is " << queue << std::endl;
 
     Dlist<int> memory;
@@ -146,13 +161,16 @@ int main(int argc, char *argv[])
         memory.insertBack(ip);
         memoryLength = memoryLength + 1;
     }
-//    std::cout << "memory Length is " << memoryLength << std::endl;
 
+//    std::cout << "memory Length is " << memoryLength << std::endl;
+//
     int memoryArray[memoryLength];
     for(int i = 0; i < memoryLength; i++){
-        memoryArray[i] = *memory.removeFront();
+        int * tmp = memory.removeFront();
+        memoryArray[i] = *tmp;
+        delete tmp;
     }
-
+//
 //    std::cout << "memory is ";
 //    for(int i = 0; i < memoryLength; i++){
 //        std::cout << memoryArray[i] << " ";
@@ -215,6 +233,7 @@ int main(int argc, char *argv[])
             }
             continue;
         }
+        delete currentIntr;
     }
     if(slient){
         printStack(stack);

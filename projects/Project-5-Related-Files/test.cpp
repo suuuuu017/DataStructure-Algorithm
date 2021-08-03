@@ -9,21 +9,8 @@ int main(int argc, char *argv[])
     Dlist<int> ilist;
     int *ip = new int(1);
     ilist.insertFront(ip);
-    int *ip1 = new int(2);
-    ilist.insertFront(ip1);
-    int *ip2 = new int(3);
-    ilist.insertBack(ip2);
-    std::cout << ilist << std::endl;
 
-    auto ippp = ilist.removeFront();
-    std::cout << *ippp << " the list is " << ilist << std::endl;
-    auto ipp = ilist.removeBack();
-    std::cout << *ipp << " the list is " << ilist << std::endl;
-
-    Dlist<int> copylist(ilist);
-//    copylist = ilist;
-    std::cout << "the copy list is " << copylist << std::endl;
-
+    ip = ilist.removeFront();
     if(*ip != 1)
         result = -1;
     delete ip;
