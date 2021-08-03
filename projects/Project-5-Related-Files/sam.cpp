@@ -25,7 +25,7 @@ void norInstr(Dlist<int> &stack){
     delete ele2;
 }
 
-void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue){
+void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<std::string> &queue){
     int * stackNum = stack.removeFront();
     if(*stackNum == 0){
         int removeNum = it.parameter;
@@ -38,7 +38,7 @@ void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue){
 
 void loadInstr(Dlist<int> &stack, int memoryArray[]){
     int * memoryAdd = stack.removeFront();
-    std::cout << "memory address is " << * memoryAdd << std::endl;
+//    std::cout << "memory address is " << * memoryAdd << std::endl;
     int memoryCon = memoryArray[*memoryAdd];
     int * tmp = new int(memoryCon);
     stack.insertFront(tmp);
@@ -81,16 +81,16 @@ void printStack(Dlist<int> &stack){
     std::cout << std::endl;
 }
 
-void printQueue(Dlist<Instr> &queue){
+void printQueue(Dlist<std::string> &queue){
 //    std::cout << "resulting queue is " << queue << std::endl;
     std::cout << queue << std::endl;
 
 }
 
-void print(Instr& it, Dlist<int> &stack, Dlist<Instr> &queue, int memoryArray[], int memoryLength){
+void print(Instr& it, Dlist<int> &stack, Dlist<std::string> &queue, int memoryArray[], int memoryLength){
     std::cout << it << std::endl;
     printStack(stack);
-//    printQueue(queue);
+    printQueue(queue);
     printMemory(memoryArray, memoryLength);
 }
 
@@ -132,128 +132,112 @@ int main(int argc, char *argv[])
         }
         break;
     }
-    std::cout << "stack is ";
-    printStack(stack);
+//    std::cout << "stack is ";
+//    printStack(stack);
 
 //    Dlist<Instr> queue;
     Dlist<std::string> queue;
 //
-    while(getline(std::cin, line)) {
-        std::cout << line << std::endl;
+    for(int i = 0; i < queueNum; i++) {
+//        std::cout << line << std::endl;
+        getline(std::cin, line);
         auto *stp = new std::string(line);
         queue.insertBack(stp);
-//        std::istringstream ss(line);
-//        Instr instr{};
-//        ss >> instr;
-//        std::cout << instr << std::endl;
-//        Instr * i = new Instr(instr);
-
-//        queue.insertBack(i);
     }
-//    std::cout << "que ";
-//    std::cout << queue.removeFront() << std::endl;
-//    while(std::cin) {
-////        std::istringstream ss(line);
-//        auto * instr = new Instr(std::cin);
-//        std::cin >> (*instr);
-//        queue.insertFront(instr);
-//        delete instr;
-//    }
-    std::string * tmp = queue.removeFront();
-    std::cout << "queue is " << *tmp << std::endl;
-    delete tmp;
-//
-//    Dlist<int> memory;
-//    std::cout << "line is" << line << std::endl;
-//    std::istringstream ss(line);
-//    int memoryLength = 0;
-//    while(ss.peek() != EOF){
-//        int tmpVal = 0;
-//        ss >> tmpVal;
-//        int *ip = new int(tmpVal);
-//        memory.insertBack(ip);
-//        memoryLength = memoryLength + 1;
-//    }
-//
-//    std::cout << "memory Length is " << memory << std::endl;
-////
-//    int memoryArray[memoryLength];
-//    for(int i = 0; i < memoryLength; i++){
-//        int * tmp = memory.removeFront();
-//        memoryArray[i] = * tmp;
-//        delete tmp;
-//    }
-//
-//    std::cout << "memory is ";
-//    for(int i = 0; i < memoryLength; i++){
-//        std::cout << memoryArray[i] << " ";
-//    }
-//    std::cout << std::endl;
+//    std::string * tmp = queue.removeFront();
+//    std::cout << "queue is " << queue << std::endl;
+//    delete tmp;
 
-//    while(!queue.isEmpty()){
-//        Instr * currentIntr = queue.removeFront();
-//        if(currentIntr->name == InstrName::HALT){
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//            delete currentIntr;
-//            break;
-//        }
-//        else if(currentIntr->name == InstrName::ADD){
-//            addInstr(stack);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::NOR){
-//            norInstr(stack);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::IFZ){
-//            ifzInstr(*currentIntr, stack, queue);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::LOAD){
-//            loadInstr(stack, memoryArray);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::STORE){
-//            storeInstr(stack, memoryArray);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::POP){
-//            popInstr(stack);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::PUSHI){
-//            pushiInstr(*currentIntr, stack);
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//        }
-//        else if(currentIntr->name == InstrName::NOOP){
-//            if(!slient){
-//                print(*currentIntr, stack, queue, memoryArray, memoryLength);
-//            }
-//            delete currentIntr;
-//            continue;
-//        }
-//        delete currentIntr;
-//    }
-//    if(slient){
-//        printStack(stack);
-//        printMemory(memoryArray, memoryLength);
-//    }
+
+    Dlist<int> memory;
+    getline(std::cin, line);
+//    std::cout << "line is" << line << std::endl;
+    std::istringstream ss(line);
+    int memoryLength = 0;
+    while(ss.peek() != EOF){
+        int tmpVal = 0;
+        ss >> tmpVal;
+        int *ip = new int(tmpVal);
+        memory.insertBack(ip);
+        memoryLength = memoryLength + 1;
+    }
+
+//    std::cout << "memory Length is " << memory << std::endl;
+
+    int memoryArray[memoryLength];
+    for(int i = 0; i < memoryLength; i++){
+        int * tmp = memory.removeFront();
+        memoryArray[i] = * tmp;
+        delete tmp;
+    }
+
+    while(!queue.isEmpty()){
+        std::string * currentIntrString = queue.removeFront();
+        std::istringstream instrS(*currentIntrString);
+        Instr currentIntr{};
+        instrS >> currentIntr;
+        if(currentIntr.name == InstrName::HALT){
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+            delete currentIntrString;
+            break;
+        }
+        else if(currentIntr.name == InstrName::ADD){
+            addInstr(stack);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::NOR){
+            norInstr(stack);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::IFZ){
+            ifzInstr(currentIntr, stack, queue);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::LOAD){
+            loadInstr(stack, memoryArray);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::STORE){
+            storeInstr(stack, memoryArray);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::POP){
+            popInstr(stack);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::PUSHI){
+            pushiInstr(currentIntr, stack);
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+        }
+        else if(currentIntr.name == InstrName::NOOP){
+            if(!slient){
+                print(currentIntr, stack, queue, memoryArray, memoryLength);
+            }
+            delete currentIntrString;
+            continue;
+        }
+        delete currentIntrString;
+    }
+    if(slient){
+        printStack(stack);
+        printMemory(memoryArray, memoryLength);
+    }
 
 
 
