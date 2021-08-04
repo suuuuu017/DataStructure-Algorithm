@@ -5,6 +5,8 @@
 #include "Dlist.h"
 #include "Instr.h"
 
+//MODIFIED: the input string
+//EFFECT: trim the right spaces of a string
 const std::string WHITESPACE = " \n\r\t\f\v";
 std::string rightTrim(const std::string & line)
 {
@@ -17,6 +19,8 @@ std::string rightTrim(const std::string & line)
     }
 }
 
+//MODIFIED: stack
+//EFFECT: pop the first two elements and push in the addition result
 void addInstr(Dlist<int> &stack){
     int * ele1 = stack.removeFront();
     int * ele2 = stack.removeFront();
@@ -27,6 +31,8 @@ void addInstr(Dlist<int> &stack){
     delete ele2;
 }
 
+//MODIFIED: stack
+//EFFECT: pop the first two elements and push in the nor result
 void norInstr(Dlist<int> &stack){
     int * ele1 = stack.removeFront();
     int * ele2 = stack.removeFront();
@@ -37,6 +43,8 @@ void norInstr(Dlist<int> &stack){
     delete ele2;
 }
 
+//MODIFIED: stack or queue if the stack element is zero
+//EFFECT: pop the first element of the stack if it is zero, remove the first n instruction
 void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<std::string> &queue){
     int * stackNum = stack.removeFront();
     if(*stackNum == 0){
@@ -48,6 +56,8 @@ void ifzInstr(Instr& it, Dlist<int> &stack, Dlist<std::string> &queue){
     delete stackNum;
 }
 
+//MODIFIED: stack
+//EFFECT: load the element from the memory into the stack
 void loadInstr(Dlist<int> &stack, int memoryArray[]){
     int * memoryAdd = stack.removeFront();
 //    std::cout << "memory address is " << * memoryAdd << std::endl;
@@ -57,6 +67,8 @@ void loadInstr(Dlist<int> &stack, int memoryArray[]){
     delete memoryAdd;
 }
 
+//MODIFIED: stack, memory
+//EFFECT: pop the first two elements and store the second element into the memory address by the first element
 void storeInstr(Dlist<int> &stack, int memoryArray[]){
     int * address = stack.removeFront();
     int * value = stack.removeFront();
@@ -65,25 +77,29 @@ void storeInstr(Dlist<int> &stack, int memoryArray[]){
     delete value;
 }
 
+//MODIFIED: stack
+//EFFECT: pop the first stack element
 void popInstr(Dlist<int> &stack){
     delete stack.removeFront();
 }
 
+//MODIFIED: stack
+//EFFECT: push in the parameter of the instruction
 void pushiInstr(Instr& it, Dlist<int> &stack){
     int * push = new int(it.parameter);
     stack.insertFront(push);
 }
 
+//EFFECT: print the memory
 void printMemory(int memoryArray[], int memoryLength){
-//    std::cout << "memory is ";
     for(int i = 0; i < memoryLength; i++){
         std::cout << memoryArray[i] << " ";
     }
     std::cout << std::endl;
 }
 
+//EFFECT: print the stack
 void printStack(Dlist<int> &stack){
-//    std::cout << "resulting stack is " << stack << std::endl;
     Dlist<int> tmpStack(stack);
     while(!tmpStack.isEmpty()){
         int * out = tmpStack.removeBack();
@@ -93,12 +109,13 @@ void printStack(Dlist<int> &stack){
     std::cout << std::endl;
 }
 
+//EFFECT: print the queue
 void printQueue(Dlist<std::string> &queue){
-//    std::cout << "resulting queue is " << queue << std::endl;
     std::cout << queue << std::endl;
 
 }
 
+//EFFECT: print the previous instruction, the stack, the queue and the memory
 void print(Instr& it, Dlist<int> &stack, Dlist<std::string> &queue, int memoryArray[], int memoryLength){
     std::cout << it << std::endl;
     printStack(stack);
@@ -116,25 +133,23 @@ int main(int argc, char *argv[])
             slient = true;
         }
     }
-//    std::cout << "slient is " << slient << std::endl;
 
     std::string line;
 
+    //read in the stack length and the instruction queue length
     int stackNum = 0;
     int queueNum = 0;
 
     while(getline(std::cin, line)) {
-//        std::cout << line << std::endl;
         line = rightTrim(line);
         std::istringstream ss(line);
         ss >> stackNum >> queueNum;
         break;
     }
-//    std::cout << stackNum << " " << queueNum << std::endl;
 
+    //read in the stack
     Dlist<int> stack;
     getline(std::cin, line);
-//        std::cout << line << std::endl;
     line = rightTrim(line);
     std::istringstream sstack(line);
     while(sstack.peek() != EOF){
@@ -143,28 +158,21 @@ int main(int argc, char *argv[])
         int *ip = new int(tmpVal);
         stack.insertFront(ip);
     }
-//    std::cout << "stack is ";
-//    printStack(stack);
 
-//    Dlist<Instr> queue;
+    //read in the instruction queue
     Dlist<std::string> queue;
-//
+
     for(int i = 0; i < queueNum; i++) {
-//        std::cout << line << std::endl;
         getline(std::cin, line);
         line = rightTrim(line);
         auto *stp = new std::string(line);
         queue.insertBack(stp);
     }
-//    std::string * tmp = queue.removeFront();
-//    std::cout << "queue is " << queue << std::endl;
-//    delete tmp;
 
-
+    //read in the memory into a dlist
     Dlist<int> memory;
     getline(std::cin, line);
     line = rightTrim(line);
-//    std::cout << "line is" << line << std::endl;
     std::istringstream ss(line);
     int memoryLength = 0;
     while(ss.peek() != EOF){
@@ -175,8 +183,7 @@ int main(int argc, char *argv[])
         memoryLength = memoryLength + 1;
     }
 
-//    std::cout << "memory Length is " << memory << std::endl;
-
+    //store the memory into an array for quick access
     int memoryArray[memoryLength];
     for(int i = 0; i < memoryLength; i++){
         int * tmp = memory.removeFront();
@@ -184,6 +191,7 @@ int main(int argc, char *argv[])
         delete tmp;
     }
 
+    //process the queue one by one
     while(!queue.isEmpty()){
         std::string * currentIntrString = queue.removeFront();
         std::istringstream instrS(*currentIntrString);
